@@ -1,0 +1,45 @@
+#content {
+	position: relative;
+	padding: 20px;
+	margin: 20px;
+	background-color: #eee;
+	height: 100%;
+}
+#left,#right,#middle{
+	position: absolute;
+	padding: 20px;
+	border: 1px #999 solid;
+}
+#left {
+	width: 158px;
+}
+#left img {
+	margin-right: 20px;
+	vertical-align: top;
+}
+#middle {
+	margin-left: 240px;
+	margin-right: 160px;
+}
+#right {
+	right: 20px;
+	width: 78px;
+}
+#right img {
+	display: block;
+	margin-top: 20px;
+}
+#right :first-child {
+	margin-top: 0px;
+}
+h4 {
+	vertical-align: top;
+	display: inline;
+}
+div>div {
+	background-color: #fff;
+}
+img {
+	width: 80px;
+	height: 80px;
+}

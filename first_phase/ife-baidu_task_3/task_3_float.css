@@ -1,0 +1,47 @@
+#content {
+	background-color: #eee;
+	margin: 20px;
+	border: 1px  solid #999;
+	overflow: hidden;
+}
+#left {
+	width: 158px;
+	border: 1px  solid #999;
+	float: left;
+}
+#left img {
+	margin-right: 20px;
+	vertical-align: top;
+}
+#right {
+	width: 78px;
+	float: right;
+	border: 1px  solid #999;
+}
+#right img {
+	display: block;
+	margin-top: 20px;
+}
+#right :first-child {
+	margin-top: 0px;
+}
+#middle {
+	width: auto;
+	margin-right: 140px;
+	margin-left: 220px;
+	border: 1px  solid #999;
+}
+h4 {
+	vertical-align: top;
+	display: inline;
+}
+div {
+	padding: 20px;
+}
+div>div {
+	background-color: #fff;
+}
+img {
+	width: 80px;
+	height: 80px;
+}
