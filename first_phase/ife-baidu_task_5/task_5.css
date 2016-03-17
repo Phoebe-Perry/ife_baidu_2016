@@ -1,0 +1,135 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+#head,#bottom {
+	width: 100%;
+	height: 50px;
+	background-color: #000;	
+}
+#head li {
+	float: right;
+	color: #fff;
+	line-height: 50px;
+	width: 100px;
+}
+#head img {
+	width: 100px;
+}
+
+#content {
+	background-color: rgb(224,224,224);
+	padding: 20px;
+}
+#right {
+	float: right;
+	width: 380px;
+	height: 505px;
+	background-color: #fff;
+	padding: 20px;
+}
+#right h2 {
+	border-left: 5px solid #ccc;
+	padding: 10px;
+}
+#right table {
+	width: 100%;
+	margin: 0 auto;
+}
+#right td {
+	padding:8px;
+}
+.notice {
+	color: #ccc;
+}
+.discribe {
+	vertical-align: top;
+}
+#sub {
+	width: 100%;
+	height:30px; 
+	border-radius: 7px;
+	background-color: rgb(39,62,198);
+	border: none;
+	color: #fff;
+	font-size: 15px;
+}
+
+#main {
+	margin-right: 440px;
+}
+#main>div {
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: #fff
+}
+h2 {
+	line-height: 40px;
+}
+h3 {
+	line-height: 30px;
+}
+h5 {
+	line-height: 30px;
+	color: rgb(114,114,114);
+}
+p {
+	line-height: 25px;
+}
+ul {
+	list-style-type: none;
+}
+#main li {
+	line-height: 25px;
+	margin-left: 20px;
+}
+#main ol {
+	margin: 20px;
+}
+.exhibit {
+	padding: 10px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #ccc;
+	margin: 6px;
+}
+.exhibit img {
+	width: 130px;
+}
+
+.art_img {
+	width: 250px;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#main table {
+	width: 100%;
+	border-collapse:collapse;
+}
+#main th,td {
+	padding: 5px;
+}
+th {
+	background-color: #000;
+	color: #fff;
+	text-align: left;
+}
+#gray td{
+	background-color: #ccc;
+}
+
+#bottom {
+	text-align: center;
+	color: #fff;
+	margin-top: -20px;
+}
+#bottom p {
+	line-height: 50px;
+}
+
+
+
+
+
+
