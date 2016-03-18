@@ -1,0 +1,320 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+#top {
+	height: 50px;
+	width: 100%;
+}
+#top li {
+	float: right;
+	padding: 20px;
+}
+#top div {
+	float: right;
+	padding: 20px 80px 20px 20px;
+	color: red;
+}
+.top_icon {
+	margin-left: 50px;
+}
+#top h3 {
+	display: inline;
+	line-height: 50px;
+	font-size: 25px;
+	font-weight: lighter;
+}
+
+#banner {
+	padding-left: 120px;
+	background-image: url(images/bg_1.jpg);
+	height: 123px;
+	padding: 284px 115px;
+	color: #fff;
+}
+#banner h1 {
+	font-size: 60px;
+}
+#banner p {
+	font-size: 21px;
+	line-height: 40px;
+	margin: 20px 0 50px 0;
+}
+#banner h3 {
+	width: 331px;
+	background-color: #d96257;
+	font-size: 30px;
+	text-align: center;
+	line-height: 65px;
+}
+
+#feature div {
+	display: inline-block;
+	text-align: center;
+	padding: 45px 2px 0;
+	width: 349px;
+}
+#feature p {
+	margin: 44px 0 63px;
+	padding: 0 80px 20px;
+	border-right: 2px solid #ccc;
+	color: #777;
+}
+#feature .spe {
+	border-right: none;
+}
+
+#content3 {
+	text-align: center;	
+	background-color: #ededed;
+	padding: 105px 0 70px;
+}
+#content3 img {
+	width: 91px;
+}
+#content3 h1 {
+	font-size: 60px; 
+	line-height: 100px;
+	padding-top: 49px;
+	color: #888;
+}
+#search {
+	background-image: url(images/bg_2.jpg);
+	padding: 60px;
+	text-align: center;
+	vertical-align: middle;
+	height: 300px;
+	position: relative;
+}
+#search p {
+	margin: 30px auto;
+}
+#search input {
+	width: 240px;
+	height: 43px;
+	border: none;
+	background-color: #d96257;
+	font-size: 18px;
+	letter-spacing: 20px;
+	color: #fff;
+	margin: 10px;
+}
+#search .choose{
+	color: #ccc;
+	background: url(images/opt.gif) no-repeat right; 
+	background-color: #fff;
+	padding-left: 15px;
+	border-right: 15px #fff solid;
+	letter-spacing: 0;
+}
+#search #province {
+	position: absolute;
+	width: 268px;
+	top: 216px;
+	left: 445px;
+	line-height: 30px;
+	background-color: #ccc;
+	text-align: left;
+	text-indent: 20px;
+	border: 1px #d96257 solid;
+	border-top: none;
+}
+#province li:hover {
+	background: url(images/more.gif) no-repeat left;
+	background-position: 2% 50%;
+	background-color: #d96257;
+}
+#search #qprovince input{
+	border: 1px #d96257 solid;
+	border-bottom: none;
+}
+
+#exhibit {
+	padding: 72px 150px;
+	background-color: #F8F8F8;
+}
+#exhibit div {
+	display: inline-block;
+	margin: 18px;
+}
+#exhibit img {
+	width: 219px;
+	border: 10px #fff solid;
+}
+#exhibit p,h5 {
+	line-height: 30px;
+	text-align: center;
+}
+
+#content6 {
+	position: relative;
+	height: 1256px;
+}
+#content6 img {
+	width: 944px;
+	height: 628px;
+}
+#content6_1_1 {
+	position: absolute;
+	width: 944px;
+	height: 366px;
+	padding-top: 131px;
+	top: 0;
+	color: #fff;
+	text-align: center;
+}
+#content6_1_1 h1{
+	font-size: 150px;
+}
+#content6_1_1 h2{
+	font-size: 50px;
+}
+#content6_1_1 p{
+	font-size: 30px;
+	line-height: 50px;
+}
+#content6_1_2 {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 360px;
+	padding: 184px 80px;
+}
+#content6_2_1 {
+	text-align: center;
+	font-size: 25px;
+	line-height: 40px;
+	padding-top: 193px;
+	background-color: red;
+	color: #fff;
+	width: 472px;
+	height: 435px;
+	position: absolute;
+	top: 628px;
+	left: 0;
+}
+#content6_2_2 {
+	text-align: center;
+	font-size: 25px;
+	line-height: 40px;
+	padding-top: 193px;
+	width: 472px;
+	height: 435px;
+	position: absolute;
+	top: 628px;
+	left: 472px;
+}
+#content6_2_2+img {
+	width: 481px;
+	position: absolute;
+	top: 628px;
+	right: 0;
+}
+
+#apply {
+	position: relative;
+	padding-bottom: 200px;
+}
+#apply input,textarea {
+	border: none;
+	background-color: #eee;
+	resize: none;
+}
+#apply_1 {
+	text-align: center;
+	line-height: 25px;
+	padding: 116px 0 104px;
+}
+.apply_2 {
+	padding: 0 43px 0px 154px;
+	width: 321px;
+	position: relative;
+}
+.apply_2 p{
+	line-height: 30px;
+	margin: 24px 0 58px 0;
+}
+.apply_2 .more {
+	position: absolute;
+	left: 422px;
+	bottom: -77px;
+}
+#apply_3 {
+	padding: 0 154px 185px 43px;
+	position: absolute;
+	bottom: -4px;
+	right: 0;
+}
+td {
+	width: 300px;
+	height: 47px;
+	background-color: #eee;
+	border: 8px #fff solid;
+	padding-left: 18px;
+}
+#dream_life {
+	height: 135px;
+	vertical-align: top;
+	padding: 18px;
+}
+#sub_1 {
+	text-align: center;
+}
+#sub_1 input {
+	border: none;
+	font-size: 15px;
+	font-weight: bold;
+}
+#apply p,td {
+	color: #777;
+}
+#contact {
+	text-align: center;
+	background-color: #32353e; 
+	color: #fff;
+	height: 181px;
+	line-height: 25px;
+	padding: 90px 0 120px;
+}
+#contact h3 {
+	font-size: 21px;
+	line-height: 40px;
+}
+#contact input {
+	width: 431px;
+	height: 41px;
+	vertical-align: middle;
+	margin-top: 30px;
+}
+#contact #sub2 {
+	width: 81px;
+	height: 47px;
+	font-size: 17px;
+	background-color: #6f7278;
+	color: #fff;
+	border: none;
+}
+#contact img {
+	margin: 40px 10px 0;
+}
+
+#bottom {
+	background-color: #303139;
+	padding: 28px 37px 25px 97px;
+	color: #fff;
+}
+#back {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
