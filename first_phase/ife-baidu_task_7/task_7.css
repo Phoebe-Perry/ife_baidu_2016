@@ -2,30 +2,35 @@
 	padding: 0;
 	margin: 0;
 }
+body {
+	min-width: 1440px;
+}
 ul {
 	list-style: none;
 }
 #top {
-	height: 50px;
+	height: 58px;
 	width: 100%;
 }
 #top li {
 	float: right;
-	padding: 20px;
+	padding: 21px 21px 16px 21px;
 }
-#top div {
+#top li:hover {
+	border-bottom: 4px solid red;
+}
+#top p {
 	float: right;
-	padding: 20px 80px 20px 20px;
+	padding: 20px 80px 20px 30px;
 	color: red;
-}
-.top_icon {
-	margin-left: 50px;
+	background: url(images/login.gif) no-repeat 10% 50%;
 }
 #top h3 {
-	display: inline;
-	line-height: 50px;
+	line-height: 60px;
 	font-size: 25px;
 	font-weight: lighter;
+	padding-left: 80px;
+	background: url(images/book.gif) no-repeat 3% 40%;
 }
 
 #banner {
@@ -55,7 +60,7 @@ ul {
 	display: inline-block;
 	text-align: center;
 	padding: 45px 2px 0;
-	width: 349px;
+	width: 346px;
 }
 #feature p {
 	margin: 44px 0 63px;
@@ -93,7 +98,7 @@ ul {
 	margin: 30px auto;
 }
 #search input {
-	width: 240px;
+	width: 250px;
 	height: 43px;
 	border: none;
 	background-color: #d96257;
@@ -104,17 +109,16 @@ ul {
 }
 #search .choose{
 	color: #ccc;
-	background: url(images/opt.gif) no-repeat right; 
+	background: url(images/opt.gif) no-repeat 95% 50%; 
 	background-color: #fff;
 	padding-left: 15px;
-	border-right: 15px #fff solid;
 	letter-spacing: 0;
 }
 #search #province {
 	position: absolute;
-	width: 268px;
+	width: 265px;
 	top: 216px;
-	left: 445px;
+	left: 449px;
 	line-height: 30px;
 	background-color: #ccc;
 	text-align: left;
@@ -127,11 +131,10 @@ ul {
 	background-position: 2% 50%;
 	background-color: #d96257;
 }
-#search #qprovince input{
+#search #qprovince {
 	border: 1px #d96257 solid;
 	border-bottom: none;
 }
-
 #exhibit {
 	padding: 72px 150px;
 	background-color: #F8F8F8;
@@ -157,6 +160,9 @@ ul {
 	width: 944px;
 	height: 628px;
 }
+#content6 h3 {
+	display: inline-block;
+}
 #content6_1_1 {
 	position: absolute;
 	width: 944px;
@@ -180,8 +186,39 @@ ul {
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 360px;
-	padding: 184px 80px;
+	width: 338px;
+	padding: 184px 69px;
+	text-align: center;
+}
+#content6_1_2 p {
+	color: #ccc;
+	line-height: 30px;
+	font-size: 12px;
+	text-align: left;
+}
+#content6_1_2 #lingyi {
+	color: red;
+}
+#content6_1_2 img {
+	width: 11px;
+	height: 11px;
+	margin: 0 7px;
+	text-align: center;
+}
+#content6_1_2 .box_1 {
+	width: 100px;
+	margin: 50px auto;
+	text-align: center;
+	border: 2px solid #d92357;
+	color: #d92357;
+}
+.box_2,.box_3{
+	width: 200px;
+	margin: 50px auto;
+	border: 2px solid ;	
+}
+.box_3  {
+	color: #d96357;
 }
 #content6_2_1 {
 	text-align: center;
