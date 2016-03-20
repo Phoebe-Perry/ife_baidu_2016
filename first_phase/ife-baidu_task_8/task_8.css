@@ -1,0 +1,19 @@
+.row div{
+    height: 50px;
+    background-color: #eee;
+    border: #999 1px solid;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+
+.container{padding: 0 20px 0 20px;}
+.container:before, .container:after{
+    display: table;
+    content:"";
+    clear: both;
+}
+.row{
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 20px;
+}
