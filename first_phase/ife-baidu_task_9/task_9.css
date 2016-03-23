@@ -1,0 +1,125 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	width: 1425px;
+	min-width: 1281px;
+}
+a {
+	text-decoration: none;
+	color: #AAAAA9;
+}
+#top {
+	background-color: #2289BF; 
+	height: 57px;
+	vertical-align: middle;
+	position: relative;
+}
+#top img {
+	margin: 10px 50px;
+}
+#top input {
+	width: 280px;
+	height: 28px;
+	position: absolute;
+	right: 170px;
+	top: 14px;
+	border: none;
+	border-radius: 14px;
+	background: url(images/search.gif) no-repeat 4% 50%;
+	background-color: #fff;
+	padding-left: 30px;
+}
+#top span {
+	position: absolute;
+	right: 80px;
+	line-height: 57px;
+	color: #fff;
+	background: url(images/login.gif) no-repeat left 49%;
+	padding-left: 20px;
+}
+
+#left {
+	width: 161px;
+	float: left;
+	padding: 20px 50px;
+	background-color: #2A2E3D;
+	color: #AAAAA9;
+}
+#head a {
+	vertical-align: middle;
+	margin-left: 15px;
+}
+#fans li {
+	float: left;
+	width: 80px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+#main {
+	margin-left: 261px;
+	background-color: #EDEDED;
+	padding: 0 60px;
+}
+#main div {
+	background-color: #fff;
+}
+#main-top {
+	height: 18px;
+	padding: 7px 30px;
+	margin: 0 -60px;
+}
+
+#find {
+	width: 100%;
+	height: 86px;
+}
+
+#time-find {
+	height: 67px;
+}
+
+#history {
+	width: 131px;
+	height: 65px;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.container div {
+	margin: 10px;
+	border: 1px solid #000;
+
+}
+.deal {
+	width: 198px;
+	height: 88px;
+	border: 1px #eee solid;
+}
+.item6 {
+	width: 531px;
+	height: 357px;
+}
+.item4 {
+	width: 351px;
+	height: 357px;
+}
+
+
+
+
+
+
+
+
+
+
+

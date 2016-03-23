@@ -1,0 +1,113 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+div {
+	text-align: center;
+}
+h1 {
+	font-size: 24px;
+}
+h2, .h2 {
+	font-size: 22px;
+	font-weight: lighter;
+}
+h3 {
+	font-size: 18px;
+	font-weight: lighter;
+}
+h4 {
+	font-size: 18px;
+	color: #ddd;
+	font-weight: lighter;
+}
+.left {
+	float: left;
+}
+#head {
+	background-color: #91D4DA;
+	color: #fff;
+	height: 50px;
+}
+#head h1 {
+	line-height: 50px;
+	padding-right: 70px;
+}
+#head .h2 {
+	line-height: 50px;
+	background: url(images/back.jpg) no-repeat 10% 50%;
+	padding-left: 20px;
+}
+
+.container {
+	display: flex;
+	align-items:center;
+	justify-content:space-between;
+	padding: 10px;
+}
+#nav div {
+	padding: 0 18px;
+}
+#nav div:hover {
+	border-bottom: 4px solid #91D4DA;
+}
+#banner {
+	width: 100%;
+}
+#laber {
+	border-bottom: 1px #eee solid;
+}
+#laber img{
+	width: 52px;
+	padding-bottom: 4px; 
+	display: block;
+}
+#laber div {
+	padding: 10px;
+}
+#col {
+	padding: 20px;
+}
+#col img{
+	width: 80px;
+}
+.model img {
+	width: 140px;
+}
+
+#article {
+	padding: 8px;
+}
+#article div {
+	height: 120px;
+	position: relative;
+}
+#article h2,#article h4 {
+	text-align: left;
+}
+#article h2 {
+	padding-left: 158px;
+}
+#article h4 {
+	position: absolute;
+	bottom: 8px;
+	left: 158px;
+}
+#article img {
+	float: left;	
+	width: 150px;
+}
+.article {
+	width: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+

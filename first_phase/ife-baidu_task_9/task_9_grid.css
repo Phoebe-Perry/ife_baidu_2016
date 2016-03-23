@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content:space-between
+}
+.container div {
+  height: 65px;
+}
+.item1 {
+  width: 31px;
+}
+.item1 {
+  width: 111px;
+}
