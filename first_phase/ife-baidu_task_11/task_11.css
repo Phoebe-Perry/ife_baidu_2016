@@ -5,8 +5,12 @@
 div {
 	text-align: center;
 }
+li {
+	list-style: none;
+}
 h1 {
 	font-size: 24px;
+	line-height: 50px;
 }
 h2, .h2 {
 	font-size: 22px;
@@ -24,29 +28,35 @@ h4 {
 .left {
 	float: left;
 }
+.txt_left {
+	text-align: left;
+}
+.spe {
+	border-top: 20px #eee solid;
+	padding: 10px;
+}
+.container {
+	display: flex;
+	align-items:center;
+	justify-content:space-around;
+	flex-wrap:wrap;
+}
+/*以下导航栏*/
 #head {
 	background-color: #91D4DA;
 	color: #fff;
 	height: 50px;
 }
 #head h1 {
-	line-height: 50px;
 	padding-right: 70px;
 }
 #head .h2 {
 	line-height: 50px;
 	background: url(images/back.jpg) no-repeat 10% 50%;
-	padding-left: 20px;
-}
-
-.container {
-	display: flex;
-	align-items:center;
-	justify-content:space-between;
-	padding: 10px;
+	padding-left: 30px;
 }
 #nav div {
-	padding: 0 18px;
+	padding: 15px 18px;
 }
 #nav div:hover {
 	border-bottom: 4px solid #91D4DA;
@@ -55,7 +65,8 @@ h4 {
 	width: 100%;
 }
 #laber {
-	border-bottom: 1px #eee solid;
+	margin: 0 10px;
+	border-bottom: 2px #eee solid;
 }
 #laber img{
 	width: 52px;
@@ -63,42 +74,79 @@ h4 {
 	display: block;
 }
 #laber div {
-	padding: 10px;
+	padding: 17px 10px;
 }
 #col {
 	padding: 20px;
 }
 #col img{
-	width: 80px;
+	height: 100px;
 }
-.model img {
-	width: 140px;
+#col div {
+	padding: 10px 16px;
+}
+.border {
+	border-right: 2px #eee solid;
+}
+/*以下模块栏*/
+.spe h1 {
+	border-bottom: 2px #eee solid;
+}
+.module img {
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.module {
+	margin-top: 10px;
+}
+.module li {
+	background-color: #eee;
+	width: 149px;
+	height: 45px;
+}
+.module h3 {
+	line-height: 45px;
+}
+.module ul :first-child {
+	margin-bottom: 10px; 
+}
+.module ul {
+	flex:1;
+	margin-left: 10px;
 }
 
-#article {
-	padding: 8px;
-}
-#article div {
-	height: 120px;
-	position: relative;
-}
-#article h2,#article h4 {
-	text-align: left;
-}
-#article h2 {
-	padding-left: 158px;
-}
-#article h4 {
-	position: absolute;
-	bottom: 8px;
-	left: 158px;
-}
-#article img {
-	float: left;	
-	width: 150px;
+#article{ 
+	border-top: 20px #eee solid;
+	padding: 0 10px;
 }
 .article {
-	width: 140px;
+	display: flex;
+	padding-bottom: 7px;
+	border-bottom: 2px #eee solid;
+	margin-top: 10px;
+}
+.article2 {
+	padding: 10px 0;
+}
+.article div:first-child {
+	width: 130px;
+}
+.article div:nth-child(2) {
+	flex:1;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	margin-left: 10px;
+}
+.article img {
+	width: 130px;
+}
+.article2 img {
+	width: 137px;
+}
+.article2 div {
+	margin: 10px 0;
 }
 
 
