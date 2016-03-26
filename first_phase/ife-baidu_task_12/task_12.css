@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+th {
+	background-color: #000;
+	color: #fff;
+}
+table {
+	text-align: left;
+}
+tr:nth-child(2n+1) {
+	background-color: #ccc;
+}
+tr:nth-child(2), tr:nth-child(3), tr:nth-child(4) {
+	color: red;
+}
+/*table end*/
+input {
+	margin-top: 70px;
+	width: 100px;
+	-webkit-transition: width .25s;
+	   -moz-transition: width .25s;
+	    -ms-transition: width .25s;
+	     -o-transition: width .25s;
+	        transition: width .25s;
+}
+input:focus {
+	width: 200px;
+}
+/*input end*/
+div {
+	width: 300px;
+	height: 200px;
+}
+
+#banner {
+	position: relative;
+	margin: 70px 50px;
+	overflow: hidden;/*?*/
+}
+#b1 {
+	background-color: red;
+	position: absolute;
+}
+#b2 {
+	background-color: yellow;
+	position: absolute;
+}
+#b3 {
+	background-color: green;
+	position: absolute;
+}
+#num {
+	width: 87px;
+	height: 20px;
+	position: absolute;
+	bottom: 6px;
+	right: 0;
+	z-index: 9;
+}
+a {
+	color: #000;
+	text-decoration: none;
+	padding: 5px 8px;
+	background-color: #fff;
+	opacity: 0.5;
+}
+/*style end, aniamtion start*/
+@keyframes change {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+:target {
+	z-index: 3;
+	-webkit-animation: change 0.5s linear;
+	-o-animation: change 0.5s linear;
+	animation: change 0.5s linear;
+}
+
+
+
+
+
+
+
