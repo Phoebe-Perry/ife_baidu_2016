@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>task_9</title>
 	<link rel="stylesheet" href="task_9.css">
-	<!-- <link rel="stylesheet" href="task_9_grid.css"> -->
 </head>
 <body>
 <div id="top">
@@ -16,19 +15,30 @@
 	<div id="left">
 		<div id="head">
 			<img src="images/head.gif">
-			<a href="#">ABC123</a>
+			<span>ABC123</span>
 		</div>
 		<ul id="fans">
 			<li><a><span>777</span><br><span>收藏</span></a></li>
 			<li><a><span>777</span><br><span>粉丝</span></a></li>
 		</ul>
 		<ul>
-			<li>个人报表</li>
-			<li>个人收藏</li>
-			<li>我的分享</li>
-			<li>图库</li>
-			<li>成长记录</li>
-			<li>账户信息</li>
+			<li class="rank1">个人报表
+				<ul>
+					<li class="rank2">文件一</li>
+					<li class="rank2">文件二
+						<ul>
+							<li class="rank3">文档一</li>
+							<li class="rank3">文档二</li>
+						</ul>
+					</li>
+					<li class="rank2">文件三</li>
+				</ul>
+			</li>
+			<li class="rank1">个人收藏</li>
+			<li class="rank1">我的分享</li>
+			<li class="rank1">图库</li>
+			<li class="rank1">成长记录</li>
+			<li class="rank1">账户信息</li>
 		</ul>
 	</div>
 	<div id="main">
@@ -38,217 +48,274 @@
 			<a href="#">文件一</a>/
 			<a href="#">文档一</a>
 		</div>
-		<div id="find">
-			<form action="">
+		<div id="main-main">
+			<div id="find">
+				<form action="">
 					<table>
 						<tr>
-							<td>查询项<select>
-								<option value="第一项" selected="selected"></option>
-								<option value="第二项"></option>
-								<option value="第三项"></option>
+							<td>查询项<select class="width_71">
+								<option value="第一项" selected="selected">第一项</option>
+								<option value="第二项">第二项</option>
+								<option value="第三项">第三项</option>
 								</select></td>
 							<td>
-								买方<select>
-								<option value="小A" selected="selected"></option>
-								<option value="小B"></option>
-								<option value="小C"></option>
+								买方<select class="width_121">
+								<option value="小A" selected="selected">小A</option>
+								<option value="小B">小B</option>
+								<option value="小C">小C</option>
 								</select><br>
-								卖方<select>
-								<option value="小A"></option>
-								<option value="小B"></option>
-								<option value="小C" selected="selected"></option>
-								</select>
 							</td>
 							<td>
-								日期<input type="text"> 总耗时<select>
-								<option value="7天" selected="selected"></option>
-								<option value="8天"></option>
-								<option value="9天"></option>
+								日期<input type="text" class="width_116"> 总耗时<select class="width_71">
+								<option value="7天" selected="selected">7天</option>
+								<option value="8天">8天</option>
+								<option value="9天">9天</option>
 								</select><br>
-								人数<select>
-								<option value="7人" selected="selected"></option>
-								<option value="8人"></option>
-								<option value="9人"></option>
-								</select> 成交项<select>
-								<option value="7项" selected="selected"></option>
-								<option value="8项"></option>
-								<option value="9项"></option>
-								</select>
 							</td>
-							<td>
-								<input type="submit" name="" value="搜索">
+							<td rowspan="2">
+								<input type="submit" name="" value="搜索" class="search">
 							</td>
 						</tr>
+						<tr>
+							<td></td>
+							<td>
+								卖方<select class="width_121">
+								<option value="小A">小A</option>
+								<option value="小B">小B</option>
+								<option value="小C" selected="selected">小C</option>
+								</select></td>
+							<td>人数<select class="width_71">
+								<option value="7人" selected="selected">7人</option>
+								<option value="8人">8人</option>
+								<option value="9人"></option>
+								<option value="9人"></option>
+								</select> 成交项<select class="width_121">
+								<option value="7项" selected="selected">7项</option>
+								<option value="8项">8项</option>
+								<option value="9项">9项</option>
+								</select></td>
+						</tr>
 					</table>
-			</form>
-		</div>
-		<!-- <div class="container" id="time-find">
-			<img src="" alt="" class="item1">	
-			<div class="row">
+				</form>
+			</div>
+			<div id="time-find" class="container center">
+				<div class="item1"><img src="images/prev.gif" alt=""></div>	
 				<div class="item2"><h5>10:00am</h5><p>￥1200</p></div>
 				<div class="item2"><h5>11:00am</h5><p>￥1300</p></div>
 				<div class="item2"><h5>12:00am</h5><p>￥1400</p></div>
 				<div class="item2"><h5>13:00am</h5><p>￥1500</p></div>
 				<div class="item2"><h5>14:00am</h5><p>￥1600</p></div>
 				<div class="item2"><h5>15:00am</h5><p>￥1700</p></div>
+				<div class="item1"><img src="images/next.gif" alt=""></div>
+				<div class="item3">历史查询</div>
 			</div>
-			<img src="" alt="" class="item1">
-			<div id="history" class="item3">历史查询</div>
-		</div> -->
-		<div>
-			<p>2016年4月份统计</p>
-			<div class="container">
-				<div class="deal"><p>123321</p><p>成交数</p><img src="" alt=""></div>
-				<div class="deal"><p>123321</p><p>成交数</p><img src="" alt=""></div>
-				<div class="deal"><p>123321</p><p>成交数</p><img src="" alt=""></div>
-				<div class="deal"><p>123321</p><p>成交数</p><img src="" alt=""></div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="item6">
-				<h3>第一组项目</h3>
-				<ul>
-					<li>项目一</li>
-					<li>项目二</li>
-					<li>项目三</li>
-					<li>项目四</li>
-					<li>项目五</li>
-				</ul>
-				<div>
-					<table><tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr>
-					<tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr>
-					<tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr>
-					<tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr>
-					<tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr>
-					<tr>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td>
-						<td>购买材料七</td></tr></table>
+			<div id="count">
+				<p>2016年4月份统计</p>
+				<div class="container">
+					<div class="item5 color1"><p>123321</p><p>成交数</p><div></div></div>
+					<div class="item5 color2"><p>123321</p><p>成交数</p><div></div></div>
+					<div class="item5 color3"><p>123321</p><p>成交数</p><div></div></div>
+					<div class="item5 color4"><p>123321</p><p>成交数</p><div></div></div>
 				</div>
 			</div>
-			<div class="item4">
-				<h3>第一组项目</h3>
-				<div>
-					<h4>标题</h4>
-					<p>项目报表三</p>
-					<table><tr>
-						<td>价格</td>
-						<td>￥158</td></tr>
-						<tr><td>负责人</td>
-						<td>小A</td>
-					</tr></table>
-					<h4>详细描述</h4>
-					<p>该项目目前负责人是……</p>
-					checkbox遵守保密协议 <input type="submit" value="搜索">
+			<div id="program_line" class="container">
+				<div class="item6">
+					<h3>第一组项目</h3>
+					<ul>
+						<li>项目一</li>
+						<li>项目二</li>
+						<li>项目三</li>
+						<li>项目四</li>
+						<li>项目五</li>
+					</ul>
+					<div id="program_1" class="center">
+						<table><tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr></table>
+					</div>
+					<div id="program_2">
+						<table><tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr>
+						<tr>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td>
+							<td>购买材料七</td></tr></table>
+					</div>
+				</div>
+				<div class="item4">
+					<h3>第一组项目</h3>
+					<div>
+						<h4>标题</h4>
+						<p>项目报表三</p>
+						<table><tr>
+							<th>价格</th>
+							<th class="bor">负责人</th></tr>
+							<tr><td>￥158</td>
+							<td class="bor">小A</td>
+						</tr></table>
+						<h4>详细描述</h4>
+						<p>该项目目前负责人是……</p>
+					</div>
+					<form action="">
+						<table><tr>
+							<td><input type="checkbox">&nbsp;&nbsp;遵守保密协议</td>
+							<td class="txt_right"><input type="submit" value="搜索" class="search"></td></tr>
+						</table>
+					</form>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="item4">
-				<h3></h3>
-				<select name="" id=""><option value="2015年"></option><option value="2016年" selected="selected"></option><option value="2017年"></option></select>
-				<select name="" id=""><option value="3月"></option><option value="4月" selected="selected"></option><option value="5月"></option></select>
-				<select name="" id=""><option value="标注日期" selected="selected"></option><option value="删除标注"></option></select>
-				<button>返回今天</button>
-				<table><tr><th>一</th>
-				<th>二</th>
-				<th>三</th>
-				<th>四</th>
-				<th>五</th>
-				<th>六</th>
-				<th>日</th></tr>
-				<tr><td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1<br>愚人节</td>
-				<td>2<br>廿五</td>
-				<td>3<br>廿六</td></tr>
-				<tr><td>4<br>廿七</td>
-				<td>5<br>清明</td>
-				<td>6<br>廿九</td>
-				<td>7<br>三月</td>
-				<td>8<br>初一</td>
-				<td>9<br>初二</td>
-				<td>10<br>初三</td></tr>
-				<tr><td>11<br>初四</td>
-				<td>12<br>初五</td>
-				<td>13<br>初六</td>
-				<td>14<br>初七</td>
-				<td>15<br>初八</td>
-				<td>16<br>初九</td>
-				<td>17<br>初十</td></tr>
-				<tr><td>18<br>十一</td>
-				<td>19<br>十二</td>
-				<td>20<br>十三</td>
-				<td>21<br>十四</td>
-				<td>22<br>十五</td>
-				<td>23<br>十六</td>
-				<td>24<br>十七</td></tr>
-				<tr><td>25<br>十八</td>
-				<td>26<br>十九</td>
-				<td>27<br>廿十</td>
-				<td>28<br>廿一</td>
-				<td>29<br>廿二</td>
-				<td>30<br>廿三</td>
-				<td></td></tr></table>
-			</div>
-			<div class="item6">
-				<h3></h3>
-				<table><tr><th>排名</th>
-				<th>品牌</th>
-				<th>搜索指数</th></tr>
-				<tr><td>1</td>
-				<td>大众</td>
-				<td>77777777<img src="" alt=""></td></tr>
-				<tr><td>2</td>
-				<td>丰田</td>
-				<td>67777777</td></tr>
-				<tr><td>3</td>
-				<td>奥迪</td>
-				<td>57777777</td></tr>
-				<tr><td>4</td>
-				<td>本田</td>
-				<td>47777777</td></tr>
-				<tr><td>5</td>
-				<td>福特</td>
-				<td>37777777</td></tr>
-				<tr><td>6</td>
-				<td>宝马</td>
-				<td>27777777</td></tr>
-				<tr><td>7</td>
-				<td>现代</td>
-				<td>17777777</td></tr>
-				<tr><td>8</td>
-				<td>起亚</td>
-				<td>7777777</td></tr>
-				<tr><td>9</td>
-				<td>奔驰</td>
-				<td>6777777</td></tr>
-				<tr><td>20</td>
-				<td>别克</td>
-				<td>5777777</td></tr></table>
+			<div id="calendar_line" class="container">
+				<div id="calendar" class="item4">
+					<h3>日历</h3>
+					<form action="">
+						<select name="year" id="">
+							<option name="year" value="2015年">2015年</option>
+							<option name="year" value="2016年" selected="selected">2016年</option>
+							<option name="year" value="2017年">2017年</option>
+						</select>
+						<select name="month" id="">
+							<option name="month" value="3月">3月</option>
+							<option name="month" value="4月" selected="selected">4月</option>
+							<option name="month" value="5月">5月</option>
+						</select>
+						<select name="day" id="">
+							<option name="day" value="标注日期" selected="selected">标注日期</option>
+							<option name="day" value="删除标注">删除标注</option>
+						</select>
+						<button>返回今天</button>
+					</form>
+					<table class="center"><tr><th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+						<th>日</th></tr>
+						<tr><td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>1<br><span>愚人节</span></td>
+						<td><span class="red"><span>2</span><br>廿五</td>
+						<td><span class="red"><span>3</span><br>廿六</td></tr>
+						<tr><td>4<br>廿七</td>
+						<td>5<br><span class="red">清明</span></td>
+						<td>6<br>廿九</td>
+						<td>7<br>三月</td>
+						<td>8<br>初一</td>
+						<td class="mark"><span class="red"><span>9</span><br>初二</td>
+						<td><span class="red">10</span><br>初三</td></tr>
+						<tr><td>11<br>初四</td>
+						<td class="mark">12<br>初五</td>
+						<td>13<br>初六</td>
+						<td>14<br>初七</td>
+						<td>15<br>初八</td>
+						<td><span class="red">16</span><br>初九</td>
+						<td><span class="red">17</span><br>初十</td></tr>
+						<tr><td>18<br>十一</td>
+						<td class="mark">19<br>十二</td>
+						<td>20<br>十三</td>
+						<td>21<br>十四</td>
+						<td>22<br>十五</td>
+						<td><span class="red">23</span><br>十六</td>
+						<td><span class="red">24</span><br>十七</td></tr>
+						<tr><td>25<br>十八</td>
+						<td>26<br>十九</td>
+						<td>27<br>廿十</td>
+						<td>28<br>廿一</td>
+						<td>29<br>廿二</td>
+						<td><span class="red">30</span><br>廿三</td>
+						<td></td></tr>
+					</table>
+				</div>
+				<div id="rank" class="item6">
+					<h3>汽车行业品牌榜</h3>
+					<table class="center"><tr><th>排名</th>
+						<th>品牌</th>
+						<th>搜索指数</th></tr>
+						<tr><td>1</td>
+						<td>大众</td>
+						<td>77777777<img src="" alt=""></td></tr>
+						<tr><td>2</td>
+						<td>丰田</td>
+						<td>67777777</td></tr>
+						<tr><td>3</td>
+						<td>奥迪</td>
+						<td>57777777</td></tr>
+						<tr><td>4</td>
+						<td>本田</td>
+						<td>47777777</td></tr>
+						<tr><td>5</td>
+						<td>福特</td>
+						<td>37777777</td></tr>
+						<tr><td>6</td>
+						<td>宝马</td>
+						<td>27777777</td></tr>
+						<tr><td>7</td>
+						<td>现代</td>
+						<td>17777777</td></tr>
+						<tr><td>8</td>
+						<td>起亚</td>
+						<td>7777777</td></tr>
+						<tr><td>9</td>
+						<td>奔驰</td>
+						<td>6777777</td></tr>
+						<tr><td>10</td>
+						<td>别克</td>
+						<td>5777777</td></tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -256,6 +323,18 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

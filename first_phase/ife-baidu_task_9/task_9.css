@@ -1,18 +1,82 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-size: 12px;
 }
 ul {
 	list-style: none;
 }
 body {
-	width: 1425px;
-	min-width: 1281px;
+	min-width: 1100px;
+	background-color: #EDEDED;
 }
 a {
 	text-decoration: none;
 	color: #AAAAA9;
 }
+table{
+	border-collapse:collapse;
+}
+/*tr :hover {
+	background-color: #eee;
+}*/
+.center {
+	text-align: center;
+}
+.search {
+	width: 50px;
+	height: 23px;
+	background-color: #2289BF;
+	color: #fff;
+	border: none;
+}
+/*flex布局*/
+.container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.item1 {
+	width: 31px;
+	background-color: #fff;
+	margin-right: 10px;
+	border: 1px #D0D2D6 solid;
+	height: 17px;
+	padding: 24px 0px;
+}
+.item2 {
+	flex: 1;
+	background-color: #fff;
+	margin-right: 10px;
+	border: 1px #D0D2D6 solid;
+}
+.item3 {
+	width: 91px;
+	background-color: #fff;
+	border: 1px #D0D2D6 solid;
+}
+.item4 {
+	flex: 4;
+	background-color: #fff;
+	border-radius: 10px;
+	border: 1px #D0D2D6 solid;
+}
+.item6 {
+	flex: 6;
+	background-color: #fff;
+	height: 357px;
+	border-radius: 10px;
+	border: 1px #D0D2D6 solid;
+}
+.item5 {
+	width: 178px;
+	height: 50px;
+	border: 1px #D0D2D6 solid;
+	background-color: #fff;
+	position: relative;
+	padding: 10px;
+}
+/*顶层logo及搜索框*/
 #top {
 	background-color: #2289BF; 
 	height: 57px;
@@ -42,17 +106,20 @@ a {
 	background: url(images/login.gif) no-repeat left 49%;
 	padding-left: 20px;
 }
-
+/*左边栏*/
 #left {
 	width: 161px;
+	height: 1213px;
 	float: left;
 	padding: 20px 50px;
 	background-color: #2A2E3D;
 	color: #AAAAA9;
 }
-#head a {
-	vertical-align: middle;
+#head span {
 	margin-left: 15px;
+}
+#fans {
+	height: 70px;
 }
 #fans li {
 	float: left;
@@ -60,58 +127,242 @@ a {
 	padding-top: 20px;
 	text-align: center;
 }
-
+.rank2 {
+	margin-left: 15px;
+}
+.rank3 {
+	margin-left: 15px;	
+}
+.rank1 {
+	line-height: 30px;
+}
+/*右边主内容*/
 #main {
 	margin-left: 261px;
-	background-color: #EDEDED;
-	padding: 0 60px;
 }
-#main div {
+#main-main {
+	width: 891px;
+	margin: 20px auto;	
+}
+#main-main>div {
+	margin-top: 10px;
+}	
+/*右边主内容顶栏*/
+#main-top {
+	height: 32px;
+	padding-left:25px;
 	background-color: #fff;
 }
-#main-top {
-	height: 18px;
-	padding: 7px 30px;
-	margin: 0 -60px;
+#main-top a {
+	line-height: 32px;
 }
-
+#main-top :nth-child(4){
+	color: #A9CFEC;
+}
+/*主内容查询表单*/
 #find {
-	width: 100%;
-	height: 86px;
+	height: 49px;
+	background-color: #fff;
+	border: 1px #D0D2D6 solid;
+	padding: 18px 20px;
 }
-
-#time-find {
-	height: 67px;
+#find td{
+	padding: 3px 20px;
 }
-
-#history {
-	width: 131px;
-	height: 65px;
+.width_71 {
+	width: 71px;
+	margin-left: 17px;
 }
-
-.container {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+.width_116 {
+	width: 116px;
+	margin-left: 17px;
 }
-.container div {
-	margin: 10px;
-	border: 1px solid #000;
-
+.width_121 {
+	width: 121px;
+	margin-left: 17px;
 }
-.deal {
-	width: 198px;
-	height: 88px;
+/*时间查找历史查询行*/
+#time-find .item2{
+	height: 45px;
+	padding: 15px 20px 5px;
+}
+#time-find img {
+	width: 10px;
+	height: 17px;
+}
+#time-find p {
+	font-size: 20px;
+	color: red;
+	line-height: 30px;
+}
+#time-find .item2:hover {
+	border-top: 4px #2289BF solid;
+	height: 42px;
+}
+.item3 {
+	background: url(images/history.gif) no-repeat 15% 50%;
+	background-color: #fff;
+	padding-top: 27px;
+	padding-left: 40px;
+}
+/*4月统计行*/
+#count p {
+	line-height: 25px;
+}
+.item5 div {
+	position: absolute;
+	width: 61px;
+	height: 47px;
+	right: 10px;
+	top: 10px;
+}
+.color1 {
+	border-left: 4px green solid;
+}
+.color2 {
+	border-left: 4px blue solid;
+}
+.color3 {
+	border-left: 4px red solid;
+}
+.color4 {
+	border-left: 4px yellow solid;
+}
+.color1 div {
+	background-color: green;
+}
+.color2 div {
+	background-color: blue;
+}
+.color3 div {
+	background-color: red;
+}
+.color4 div {
+	background-color: yellow;
+}
+/*第一组项目行左*/
+.container h3 {
+	background-color: #F4F5F7;
+	vertical-align: middle;
+	border-radius: 10px 10px 0 0;
+	line-height: 40px;
+	padding-left: 20px;
+}
+#program_line .item6 {
+	margin-right: 10px;
+}
+.item6 li {
+	float: left;
+	width: 70px;
+	margin: 10px 0 0 20px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #eee;
+	border-radius: 5px 5px 0 0;
+}
+.item6 li:hover {
+	background-color: #fff;
+	border-radius: 5px 5px 0 0;
+	border: 1px #ccc solid;
+}
+.item6 div {
+	margin: 0 20px;
+	padding: 30px 40px;
+	clear: both;
+}
+#program_1 {
+	border: 1px #ccc solid;
+	border-radius: 0px 5px 5px 5px;	
+}
+.item6 td, .item6 th {
 	border: 1px #eee solid;
 }
-.item6 {
-	width: 531px;
-	height: 357px;
+#program_line tr {
+	height: 31px;
 }
-.item4 {
-	width: 351px;
-	height: 357px;
+#program_line td {
+	width: 101px;
 }
+#program_2 {
+	display: none;
+}
+/*第一组项目行右*/
+#program_line .item4 div {
+	padding: 10px 30px;
+	height: 230px;
+}
+#program_line h4, #program_line th {
+	color: #ccc;
+	font-weight: lighter;
+	line-height: 20px;
+	text-align: left;
+	padding-left: 10px;
+}
+#program_line .item4 p, #program_line .item4 td {
+	line-height: 20px;
+	padding-left: 10px;
+}
+#program_line table {
+	border-top: 1px #eee solid;
+	border-bottom: 1px #eee solid; 
+}
+.bor {
+	border-left: 1px #eee solid;
+}
+#program_line .item4 form table {
+	border-bottom: none;
+	margin-left: 30px;
+	width: 290px;
+} 
+.txt_right {
+	text-align: right;
+}
+/*日历*/
+#calendar_line .item4 {
+	margin-right: 10px;
+}
+#calendar form {
+	margin: 10px 20px;
+	/*border-bottom: */
+}
+#calendar select, button {
+	width: 75px;
+	border-radius: 0;
+	border: 1px #eee solid;
+	background-color: #fff;
+	height: 17px;
+}
+#calendar table {
+	margin: 0 20px;
+}
+#calendar th {
+	border-top: 1px #A9CFEC solid;
+	border-bottom: 1px #ccc solid;
+	height: 25px;
+	width: 75px;
+}
+#calendar td {
+	height: 47px;
+}
+.red {
+	color: red;
+}
+.mark {
+	border: orange solid 1px;
+}
+/*排行榜*/
+#rank table{
+	margin: 15px 30px;
+}
+#rank td, #rank th{
+	padding: 6px 32px;
+}
+
+
+
+
+
+
 
 
 
