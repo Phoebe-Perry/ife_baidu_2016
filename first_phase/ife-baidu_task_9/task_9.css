@@ -115,8 +115,14 @@ table{
 	background-color: #2A2E3D;
 	color: #AAAAA9;
 }
+#head img{
+	float: left;
+}
 #head span {
 	margin-left: 15px;
+	line-height: 57px;
+	font-size: 16px;
+	color: #fff;
 }
 #fans {
 	height: 70px;
@@ -323,14 +329,13 @@ table{
 }
 #calendar form {
 	margin: 10px 20px;
-	/*border-bottom: */
 }
 #calendar select, button {
 	width: 75px;
-	border-radius: 0;
+	border-radius: 5px;
 	border: 1px #eee solid;
 	background-color: #fff;
-	height: 17px;
+	height: 24px;
 }
 #calendar table {
 	margin: 0 20px;
@@ -342,7 +347,11 @@ table{
 	width: 75px;
 }
 #calendar td {
-	height: 47px;
+	height: 43px;
+	width: 75px;
+}
+#calendar .date {
+	border-collapse: separate;
 }
 .red {
 	color: red;
@@ -353,10 +362,32 @@ table{
 /*排行榜*/
 #rank table{
 	margin: 15px 30px;
+	vertical-align: middle;
 }
 #rank td, #rank th{
 	padding: 6px 32px;
 }
+#rank .hot_all {
+	display: inline-block;
+	width: 160px;
+	height: 4px;
+	background-color: #ccc;
+	margin: 0 0 2px 7px;
+	padding: 0;
+}
+#rank p {
+	height: 4px;
+}
+#hot_1 { width: 80%; background-color: red; }
+#hot_2 { width: 75%; background-color: red; }
+#hot_3 { width: 70%; background-color: red; }
+#hot_4 { width: 60%; background-color: rgb(122,189,233); }
+#hot_5 { width: 50%; background-color: rgb(122,189,233); }
+#hot_6 { width: 40%; background-color: rgb(122,189,233); }
+#hot_7 { width: 37%; background-color: rgb(122,189,233); }
+#hot_8 { width: 28%; background-color: rgb(122,189,233); }
+#hot_9 { width: 18%; background-color: rgb(122,189,233); }
+#hot_10 { width: 16%; background-color: rgb(122,189,233); }
 
 
 
