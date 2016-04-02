@@ -9,7 +9,7 @@
 		margin: 0;
 	}
 	body {
-		width: 400px;
+		width: 800px;
 		margin: 0 auto;
 	}
 	#ctrl {
@@ -18,13 +18,18 @@
 	#ctrl button {
 		padding: 3px;
 	}
-	#list li {
-		float: left;
-		width: 10px;
+	#list {
+		display: flex;
+		align-items: flex-end;
+	}
+	#list div {
+		width: 20px;
+		margin: 0 2px;
 		background-color: red;
 		color: white;
 		line-height: 15px;
 		cursor: pointer;
+		bottom: 0;
 	}
 	</style>
 </head>
@@ -36,9 +41,10 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<button id="left_out">左侧出</button>
 	<button id="right_out">右侧出</button>
+	<button id="sort_num">排序</button>
 </div>
-<ul id="list">
-</ul>
+<div id="list">
+</div>
 <script>
 window.onload = function () {
 	document.getElementById('left_in').onclick = leftIn;
@@ -48,18 +54,17 @@ window.onload = function () {
 }
 var list = document.getElementById('list');
 var numTest = /^\d{2,3}$/;//限制输入的数字在10-100
+var innerSpan = list.getElementsByTagName('div');
 function leftIn() {
 	var num = document.getElementById('inputNum').value;
-	var newSpan = document.createElement('li');
-	var innerSpan = document.getElementsByTagName('li');
-	newSpan.innerText = num;
-	if(!numTest.test(num)) {
+	var newSpan = document.createElement('div');
+	newSpan.style.height = parseInt(num) + 'px';
+	if(num > 100||!numTest.test(num)) {
 		alert('Number is Wrong');
 	}else if (innerSpan.length > 60) {
 		alert('队列数量超出60')
 	}//队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示
 	else if(!innerSpan[0]) {
-		newSpan.style.height = num;
 		list.appendChild(newSpan);
 	} else {
 		list.insertBefore(newSpan,innerSpan[0])
@@ -67,8 +72,8 @@ function leftIn() {
 }
 function rightIn() {
 	var num = document.getElementById('inputNum').value;
-	var newSpan = document.createElement('li');
-	newSpan.innerText = num;
+	var newSpan = document.createElement('div');
+	newSpan.style.height = parseInt(num) + 'px';
 	if (!numTest.test(num)) {
 		alert('Number is Wrong');
 	} else {
@@ -76,7 +81,7 @@ function rightIn() {
 	}	
 }
 function leftOut() {
-	var listSpan = document.getElementsByTagName('li')[0];
+	var listSpan = document.getElementsByTagName('div')[0];
 	if (!listSpan) {
 		alert('No Number');
 	} else {
@@ -84,11 +89,32 @@ function leftOut() {
 	}
 }
 function rightOut() {
-	var listSpan = document.getElementsByTagName('li')[0];
+	var listSpan = document.getElementsByTagName('div')[0];
 	if (!listSpan) {
 		alert('No Number');
 	} else {
 		list.removeChild(list.lastElementChild);
+	}	
+}
+
+var sortNum = document.getElementById('sort_num');
+sortNum.onclick = function sortList() {
+	var timer = null;
+	timer = setInterval(run,200);
+	function run() {
+		for (var i = 0; i < innerSpan.length; i++) {
+			for (var j = 1; j < innerSpan.length; j++) {
+				if (innerSpan[i].offsetHeight >innerSpan[j].offsetHeight) {
+					var temp = innerSpan[i].offsetHeight;
+					innerSpan[i].style.height = innerSpan[j].offsetHeight;
+					innerSpan[j].style.height = temp;
+					} else {
+						j = i+1;
+					}
+			}
+		}
+	clearInterval(timer);
+	return;
 	}	
 }
 </script>
