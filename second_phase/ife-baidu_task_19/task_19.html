@@ -18,9 +18,9 @@
 	#ctrl button {
 		padding: 3px;
 	}
-	#list span {
-		padding: 10px;
-		margin-right: 5px;
+	#list li {
+		float: left;
+		width: 10px;
 		background-color: red;
 		color: white;
 		line-height: 15px;
@@ -37,8 +37,8 @@
 	<button id="left_out">左侧出</button>
 	<button id="right_out">右侧出</button>
 </div>
-<div id="list">
-</div>
+<ul id="list">
+</ul>
 <script>
 window.onload = function () {
 	document.getElementById('left_in').onclick = leftIn;
@@ -47,24 +47,27 @@ window.onload = function () {
 	document.getElementById('right_out').onclick = rightOut;
 }
 var list = document.getElementById('list');
-var numTest = /^\d+$/;
+var numTest = /^\d{2,3}$/;//限制输入的数字在10-100
 function leftIn() {
 	var num = document.getElementById('inputNum').value;
-	var newSpan = document.createElement('span');
-	var innerSpan = document.getElementsByTagName('span')[0];
+	var newSpan = document.createElement('li');
+	var innerSpan = document.getElementsByTagName('li');
 	newSpan.innerText = num;
 	if(!numTest.test(num)) {
 		alert('Number is Wrong');
-	}
-	else if(!innerSpan) {
+	}else if (innerSpan.length > 60) {
+		alert('队列数量超出60')
+	}//队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示
+	else if(!innerSpan[0]) {
+		newSpan.style.height = num;
 		list.appendChild(newSpan);
 	} else {
-		list.insertBefore(newSpan,innerSpan)
+		list.insertBefore(newSpan,innerSpan[0])
 	}
 }
 function rightIn() {
 	var num = document.getElementById('inputNum').value;
-	var newSpan = document.createElement('span');
+	var newSpan = document.createElement('li');
 	newSpan.innerText = num;
 	if (!numTest.test(num)) {
 		alert('Number is Wrong');
@@ -73,7 +76,7 @@ function rightIn() {
 	}	
 }
 function leftOut() {
-	var listSpan = document.getElementsByTagName('span')[0];
+	var listSpan = document.getElementsByTagName('li')[0];
 	if (!listSpan) {
 		alert('No Number');
 	} else {
@@ -81,7 +84,7 @@ function leftOut() {
 	}
 }
 function rightOut() {
-	var listSpan = document.getElementsByTagName('span')[0];
+	var listSpan = document.getElementsByTagName('li')[0];
 	if (!listSpan) {
 		alert('No Number');
 	} else {
