@@ -23,8 +23,8 @@
 		align-items: flex-end;
 	}
 	#list div {
-		width: 20px;
 		margin: 0 2px;
+		padding: 2px;
 		background-color: red;
 		color: white;
 		line-height: 15px;
@@ -41,7 +41,7 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<button id="left_out">左侧出</button>
 	<button id="right_out">右侧出</button>
-	<input type="text" id="find_input">
+	<input type="text" id="key_word">
 	<button id="find_word">查找</button>
 </div>
 <div id="list">
@@ -52,16 +52,20 @@ window.onload = function () {
 	document.getElementById('right_in').onclick = rightIn;
 	document.getElementById('left_out').onclick = leftOut;
 	document.getElementById('right_out').onclick = rightOut;
+	document.getElementById('find_word').onclick = findWord;
 }
+
 var list = document.getElementById('list');
 var numTest = new RegExp("[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]");
 var numTestBlank = new RegExp("^[\n\r\s ,，、]*$");
 var innerSpan = list.getElementsByTagName('div');
+
 function leftIn() {
 	var num = document.getElementById('inputNum').value;
 	var newSpan = document.createElement('div');
-	newSpan.style.height = parseInt(num) + 'px';
-	if(!numTestBlank(num)||!numTest.test(num)) {
+	var innerSpan = document.getElementById('list').getElementsByTagName('div');
+	newSpan.innerText = num;
+	if(numTestBlank.test(num)||numTest.test(num)) {
 		alert('请输入有效的数字、中文或英文');
 	}else if (innerSpan.length > 60) {
 		alert('队列数量超出60')
@@ -75,8 +79,8 @@ function leftIn() {
 function rightIn() {
 	var num = document.getElementById('inputNum').value;
 	var newSpan = document.createElement('div');
-	newSpan.style.height = parseInt(num) + 'px';
-	if (!numTestBlank(num)||!numTest.test(num)) {
+	newSpan.innerText = num;
+	if (numTestBlank(num)||numTest.test(num)) {
 		alert('请输入有效的数字、中文或英文');
 	} else {
 		list.appendChild(newSpan);
@@ -98,8 +102,17 @@ function rightOut() {
 		list.removeChild(list.lastElementChild);
 	}	
 }
-
-
+function findWord(){
+	for(var i = 0; i < innerSpan.length; i++) {
+		var innerWord=innerSpan[i].innerHTML.toLowerCase();
+		var keyWord=document.getElementById('key_word').value.toLowerCase();
+		if (innerWord.search(keyWord)!=-1) {
+			innerSpan[i].style.background="yellow";
+		}else{
+			innerSpan[i].style.background="";
+			}
+	};
+}
 </script>
 </body>
 </html>
