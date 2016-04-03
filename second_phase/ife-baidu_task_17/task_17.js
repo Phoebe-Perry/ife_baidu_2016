@@ -8,7 +8,16 @@ var aqiSourceData = {
   }
 };
 */
-
+//跨浏览器事件绑定
+function addEventHandler(ele, event, hanlder) {
+    if (ele.addEventListener) {
+        ele.addEventListener(event, hanlder, false);
+    } else if (ele.attachEvent) {
+        ele.attachEvent("on"+event, hanlder);
+    } else  {
+        ele["on" + event] = hanlder;
+    }
+}
 // 以下两个函数用于随机模拟生成测试数据
 function getDateStr(dat) {
   var y = dat.getFullYear();
@@ -29,7 +38,6 @@ function randomBuildData(seed) {
   }
   return returnData;
 }
-
 var aqiSourceData = {
   "北京": randomBuildData(500),
   "上海": randomBuildData(300),
@@ -44,17 +52,32 @@ var aqiSourceData = {
 
 // 用于渲染图表的数据
 var chartData = {};
-
 // 记录当前页面的表单选项
 var pageState = {
   nowSelectCity: -1,
   nowGraTime: "day"
 }
 
+//鼠标动作显示与隐藏信息函数
+function showTitle (ele){
+
+}
+function hideTitle (ele) {
+	
+}
+
+var formGraTime = document.getElementById('form-gra-time');
+var aqiChartWrap = document.getElementById('aqi-chart-wrap');
+var citySelect = document.getElementById('city-select');
 /**
  * 渲染图表
  */
-function renderChart() {
+function renderChart() {	
+	var color = '',text = '';
+	for (var i in chartData) {
+		color = "'#' + Math.floor(Math.random() * 0xFFFFFF).toString(16)";
+		text +=
+	}
 
 }
 
@@ -84,7 +107,7 @@ function citySelectChange() {
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-
+	addEventHandler(formGraTime,'click',graTimeChange);
 }
 
 /**
@@ -92,9 +115,12 @@ function initGraTimeForm() {
  */
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
-
+  for (var i in aqiSourceData) {
+  	var text += '<option>' + i +'</option>'
+  	citySelect.innerHTML = text;
+  }
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
-
+  addEventHandler(citySelect,'change',citySelectChange);
 }
 
 /**
@@ -103,6 +129,7 @@ function initCitySelector() {
 function initAqiChartData() {
   // 将原始的源数据处理成图表需要的数据格式
   // 处理好的数据存到 chartData 中
+  
 }
 
 /**
@@ -115,3 +142,27 @@ function init() {
 }
 
 init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

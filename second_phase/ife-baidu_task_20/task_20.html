@@ -35,13 +35,14 @@
 </head>
 <body>
 <div id="ctrl">
-	<input type="text" id="inputNum">
+	<input type="textarea" id="inputNum">
 	<button id="left_in">左侧入</button>
 	<button id="right_in">右侧入</button>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<button id="left_out">左侧出</button>
 	<button id="right_out">右侧出</button>
-	<button id="sort_num">排序</button>
+	<input type="text" id="find_input">
+	<button id="find_word">查找</button>
 </div>
 <div id="list">
 </div>
@@ -53,14 +54,15 @@ window.onload = function () {
 	document.getElementById('right_out').onclick = rightOut;
 }
 var list = document.getElementById('list');
-var numTest = /^\d{2,3}$/;//限制输入的数字在10-100
+var numTest = new RegExp("[^\n\r\s 、,，0-9A-Za-z\u4e00-\u9fa5]");
+var numTestBlank = new RegExp("^[\n\r\s ,，、]*$");
 var innerSpan = list.getElementsByTagName('div');
 function leftIn() {
 	var num = document.getElementById('inputNum').value;
 	var newSpan = document.createElement('div');
 	newSpan.style.height = parseInt(num) + 'px';
-	if(num > 100||!numTest.test(num)) {
-		alert('Number is Wrong');
+	if(!numTestBlank(num)||!numTest.test(num)) {
+		alert('请输入有效的数字、中文或英文');
 	}else if (innerSpan.length > 60) {
 		alert('队列数量超出60')
 	}//队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示
@@ -74,8 +76,8 @@ function rightIn() {
 	var num = document.getElementById('inputNum').value;
 	var newSpan = document.createElement('div');
 	newSpan.style.height = parseInt(num) + 'px';
-	if (!numTest.test(num)) {
-		alert('Number is Wrong');
+	if (!numTestBlank(num)||!numTest.test(num)) {
+		alert('请输入有效的数字、中文或英文');
 	} else {
 		list.appendChild(newSpan);
 	}	
@@ -97,36 +99,7 @@ function rightOut() {
 	}	
 }
 
-var sortNum = document.getElementById('sort_num');
-sortNum.onclick=function(){
-	var eleHeight = [];
-	for (var item = 0; item < innerSpan.length; item++) {
-		eleHeight.push(innerSpan[item].offsetHeight);		
-	}//把innerSpan各元素的高度另存一个数组，方便书写
 
-	var	i = 0,j = 1,timer = null;
-	timer = setInterval(run,30);
-	function run() {
-		if (i < eleHeight.length) {
-			if (j < eleHeight.length) {
-				if (eleHeight[i] > eleHeight[j]) {
-					var temp = eleHeight[i];
-					eleHeight[i] = eleHeight[j];
-					eleHeight[j] = temp;
-					innerSpan[i].style.height = eleHeight[i];
-					innerSpan[j].style.height = temp;
-				}
-				j++;
-			} else {
-				i++;
-				j = i + 1;
-			}						
-		} else {
-			clearInterval(timer);
-			return;
-		}
-	}//看的前端接班人的算法，尝试过改成for循环但是失败了……	
-}
 </script>
 </body>
 </html>
