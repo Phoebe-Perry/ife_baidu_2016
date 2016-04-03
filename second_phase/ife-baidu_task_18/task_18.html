@@ -45,21 +45,26 @@ window.onload = function () {
 	document.getElementById('right_in').onclick = rightIn;
 	document.getElementById('left_out').onclick = leftOut;
 	document.getElementById('right_out').onclick = rightOut;
+	list.addEventListener('click',function(e) { //使用事件委托
+		if(e.target && e.target.nodeName == "SPAN") { 
+			list.removeChild(e.target);
+		}
+	})
 }
 var list = document.getElementById('list');
 var numTest = /^\d+$/;
+var innerSpan = document.getElementsByTagName('span');
 function leftIn() {
 	var num = document.getElementById('inputNum').value;
 	var newSpan = document.createElement('span');
-	var innerSpan = document.getElementsByTagName('span')[0];
 	newSpan.innerText = num;
 	if(!numTest.test(num)) {
 		alert('Number is Wrong');
 	}
 	else if(!innerSpan) {
-		list.appendChild(newSpan);
+		list.appendChild(newSpan[0]);
 	} else {
-		list.insertBefore(newSpan,innerSpan)
+		list.insertBefore(newSpan,innerSpan[0])
 	}
 }
 function rightIn() {
