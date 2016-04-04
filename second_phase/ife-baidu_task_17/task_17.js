@@ -54,31 +54,24 @@ var aqiSourceData = {
 var chartData = {};
 // 记录当前页面的表单选项
 var pageState = {
-  nowSelectCity: -1,
+  nowSelectCity: "北京",
   nowGraTime: "day"
 }
 
-//鼠标动作显示与隐藏信息函数
-function showTitle (ele){
-
-}
-function hideTitle (ele) {
-	
-}
-
 var formGraTime = document.getElementById('form-gra-time');
-var aqiChartWrap = document.getElementById('aqi-chart-wrap');
 var citySelect = document.getElementById('city-select');
+var aqiChartWrap = document.getElementsByClassName('aqi-chart-wrap')[0];
+
 /**
  * 渲染图表
  */
 function renderChart() {	
 	var color = '',text = '';
-	for (var i in chartData) {
-		color = "'#' + Math.floor(Math.random() * 0xFFFFFF).toString(16)";
-		text +=
-	}
-
+	for (var item in chartData) {
+		color = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    text += '<div title="'+item+":"+chartData[item]+'" style="height:'+chartData[item]+'px; background-color:'+color+'"></div>';
+}
+  aqiChartWrap.innerHTML = text;
 }
 
 /**
@@ -86,28 +79,41 @@ function renderChart() {
  */
 function graTimeChange() {
   // 确定是否选项发生了变化 
-
+  if (pageState.nowGraTime == this.value) {
+    return;
+  } else {
+    pageState.nowGraTime = this.value;
+  }
   // 设置对应数据
-
+  initAqiChartData();
   // 调用图表渲染函数
+  renderChart();
 }
 
 /**
  * select发生变化时的处理函数
  */
 function citySelectChange() {
-  // 确定是否选项发生了变化 
-
+  // 确定是否选项发生了变化
+  if (pageState.nowSelectCity == this.value) {
+    return;
+  } else {
+    pageState.nowSelectCity = this.value;
+  }
   // 设置对应数据
-
+  initAqiChartData();
   // 调用图表渲染函数
+  renderChart();
 }
 
 /**
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-	addEventHandler(formGraTime,'click',graTimeChange);
+  var pageRadio = formGraTime.getElementsByTagName('input');
+  for (var i = 0; i < pageRadio.length; i++) {
+    addEventHandler(pageRadio[i],'click',graTimeChange);
+  }
 }
 
 /**
@@ -115,21 +121,63 @@ function initGraTimeForm() {
  */
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
+  var cityList = '';
   for (var i in aqiSourceData) {
-  	var text += '<option>' + i +'</option>'
-  	citySelect.innerHTML = text;
+  	cityList += '<option>' + i +'</option>';
+  	citySelect.innerHTML = cityList;
   }
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
-  addEventHandler(citySelect,'change',citySelectChange);
+  addEventHandler(citySelect,'change',citySelectChange)
 }
 
 /**
  * 初始化图表需要的数据格式
  */
 function initAqiChartData() {
-  // 将原始的源数据处理成图表需要的数据格式
+  // 将原始的源数据处理成图表需要的数据格式,现在数据都在aqiSourceData[]中
   // 处理好的数据存到 chartData 中
-  
+  var nowCityData = aqiSourceData[pageState.nowSelectCity];
+  //nowCityData是确定的一个城市的92天降水数组，key是日期，nowCityData[key]是降水量
+
+  if (pageState.nowGraTime == 'day') {
+    chartData = nowCityData;
+  }
+  if (pageState.nowGraTime == 'week') {
+    chartData = {};
+    var countSum=0, daySum=0, week=0;
+    for (var item in nowCityData) {
+      countSum += nowCityData[item];
+      daySum ++;
+      if ((new Date(item)).getDay() == 6 ) {
+        week ++;
+        chartData['第'+week+'周'] = Math.floor(countSum/daySum);;
+        countSum = 0;
+        daySum = 0;
+      }
+    }
+    if (daySum!=0) {
+      week ++;
+      chartData['第'+week+'周'] = Math.floor(countSum/daySum);
+    }//保证最后一周若不满也能算一周
+  }
+  if (pageState.nowGraTime == 'month') {
+    chartData = {};
+    var countSum=0, daySum=0, month=0;
+    for (var item in nowCityData) {
+      countSum += nowCityData[item];
+      daySum ++;
+      if ((new Date(item)).getMonth() !== month) {
+        month ++;
+        chartData['第'+month+'月'] = Math.floor(countSum/daySum);
+        countSum = 0
+        daySum = 0;
+      }
+    }
+    if (daySum != 0) {
+      month ++;
+      chartData['第'+month+'月'] = Math.floor(countSum/daySum);
+    }//逻辑同周，不知道对不对
+  }
 }
 
 /**
@@ -139,30 +187,7 @@ function init() {
   initGraTimeForm()
   initCitySelector();
   initAqiChartData();
+  renderChart();
 }
 
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
