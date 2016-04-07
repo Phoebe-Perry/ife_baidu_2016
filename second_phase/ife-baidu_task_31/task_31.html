@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_31</title>
+	<style>
+		#wrap {
+			margin: 100px auto;
+			width: 500px;
+		}
+		#wrap>span {
+			margin: 0 50px;
+		}
+		#change_form {
+			margin-top: 40px;
+		}
+		#change_form select{
+			margin: 0 20px;
+		}
+		#choose_city {
+			width: 100px;
+		}
+		#choose_school {
+			width: 200px;
+		}
+		#not_school input {
+			width: 306px;
+			margin-left: 20px;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<span><input name="school" type="radio" id="is_radio" checked="checked" />在校生</span>
+	<span><input name="school" type="radio" id="not_radio" />非在校生</span>
+	<div id="change_form">
+		<div id="is_school">
+			<span>学校</span>
+			<select name="" id="choose_city">
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+				<option value="hrb">哈尔滨</option>
+			</select>
+			<select name="" id="choose_school">
+				<option value="thu">清华大学</option>
+				<option value="pku">北京大学</option>
+				<option value="rmu">中国人民大学</option>
+			</select>
+		</div>
+		<div id="not_school" class="hide">
+			<span>就业单位</span>
+			<input type="text">
+		</div>
+	</div>
+</div>
+</body>
+<script>
+var isRadio = document.getElementById('is_radio'),
+	notRadio = document.getElementById('not_radio'),
+	isSchool = document.getElementById('is_school'),
+	notSchool = document.getElementById('not_school'),
+	chooseCity = document.getElementById('choose_city'),
+	chooseSchool = document.getElementById('choose_school'),
+	wrap = document.getElementById('wrap');
+//单选框检查
+function radioCheck() {
+	if (isRadio.checked) {
+		isSchool.className = " ";
+		notSchool.className = "hide";
+	} else {
+		isSchool.className = "hide";
+		notSchool.className = " ";
+	}
+}
+//城市检查
+function cityCheck() {
+	var data = {
+        bj: ["清华大学", "北京大学", "中国人民大学"],
+        sh: ["复旦大学", "上海交通大学", "同济大学"],
+        hrb: ["哈尔滨工业大学", "中国农业大学", "哈尔滨理工大学"]
+    };
+    var cityValue = chooseCity.options[chooseCity.selectedIndex].value;
+    	chooseSchool.innerHTML = ' ';
+    for (var i = 0; i < data[cityValue].length; i++) {
+    	chooseSchool.innerHTML += '<option>' + data[cityValue][i] +'</option>';
+    }
+}
+
+function addEventHandler(ele, event, hanlder) {
+    if (ele.addEventListener) {
+        ele.addEventListener(event, hanlder, false);
+    } else if (ele.attachEvent) {
+        ele.attachEvent("on"+event, hanlder);
+    } else  {
+        ele["on" + event] = hanlder;
+    }
+}
+addEventHandler(wrap,'change',function(){
+	radioCheck();
+	cityCheck();
+});
+</script>
+</html>
