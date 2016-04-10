@@ -8,10 +8,6 @@
 		padding: 0;
 		margin: 0;
 	}
-	body {
-		width: 800px;
-		margin: 0 auto;
-	}
 	#ctrl {
 		margin: 5px 0 20px;
 	}
@@ -42,6 +38,7 @@
 	<button id="left_out">左侧出</button>
 	<button id="right_out">右侧出</button>
 	<button id="sort_num">排序</button>
+	<button id="randomBtn">生成随机数</button>
 </div>
 <div id="list">
 </div>
@@ -51,6 +48,7 @@ window.onload = function () {
 	document.getElementById('right_in').onclick = rightIn;
 	document.getElementById('left_out').onclick = leftOut;
 	document.getElementById('right_out').onclick = rightOut;
+	document.getElementById('randomBtn').onclick = randomData;
 }
 var list = document.getElementById('list');
 var numTest = /^\d{2,3}$/;//限制输入的数字在10-100
@@ -105,7 +103,7 @@ sortNum.onclick=function(){
 	}//把innerSpan各元素的高度另存一个数组，方便书写
 
 	var	i = 0,j = 1,timer = null;
-	timer = setInterval(run,30);
+	timer = setInterval(run,3);
 	function run() {
 		if (i < eleHeight.length) {
 			if (j < eleHeight.length) {
@@ -127,39 +125,18 @@ sortNum.onclick=function(){
 		}
 	}//看的前端接班人的算法，尝试过改成for循环但是失败了……	
 }
+
+//随机生成一组数
+function randomData() {
+	var data = [];
+	for (var i = 0; i < 100; i++) {
+		var randomNum = Math.floor(Math.random()*100+10);
+		data.push(randomNum);
+		list.innerHTML += '<div></div>';
+		var newSpan = list.getElementsByTagName('div');
+		newSpan[i].style.height = parseInt(randomNum) + 'px';
+	}
+}
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
