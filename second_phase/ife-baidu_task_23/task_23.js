@@ -1,45 +1,53 @@
-var btn = document.getElementsByTagName('input'),
-	preBtn = btn[0],
-	inBtn = btn[1],
-	postBtn = btn[2],
+var btn = document.getElementsByTagName('button'),
+	deepTraversal = btn[0],
+	wideTraversal = btn[1],
+	deepSearch = btn[2],
+	wideSearch = btn[3];
+
 	treeRoot = document.getElementsByClassName('root')[0],
 	divList = [],
 	timer = null;
+
 window.onload = function (){
-	preBtn.onclick = function () {
+	deepTraversal.onclick = function () {
 		reset();
-		preOrder(treeRoot);
+		deepTvs(treeRoot);
 		changeColor();
 	}
-	inBtn.onclick = function () {
+	wideTraversal.onclick = function () {
 		reset();
-		inOrder(treeRoot);
+		wideTvs(treeRoot);
 		changeColor(); 	
 	}
-	postBtn.onclick = function () {
+	deepSearch.onclick = function () {
 		reset();
-		postOrder(treeRoot);
+		
 		changeColor();
 	}
+	wideSearch.onclick = function () {
+		reset();
+
+	}
 }
 
-//前序遍历
-function preOrder(node) {
+//深度优先遍历
+function deepTvs(node) {
 	if (!(node == null)) {
 		divList.push(node);
 		for (var i = 0; i < node.children.length; i++) {
-			preOrder(node.children[i]);
+			deepTvs(node.children[i]);
 		}
 	}
 }
 
-//后序遍历
-function postOrder(node) {
+//广度优先遍历
+function wideTvs(node) {
+	var i = 0;
 	if (!(node == null)) {
-		for (var i = 0; i < node.children.length; i++) {
-			preOrder(node.children[i]);
-		}
 		divList.push(node);
+		wideTvs(node.nextElementSibling);
+		node = divList[i++];
+		wideTvs(node.firstElementChild);
 	}
 }
 

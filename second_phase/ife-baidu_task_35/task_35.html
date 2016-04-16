@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_33</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			margin-left: 50%;
+			left: -250px;
+			position: relative;
+			padding-left: 45px;
+		}
+		table {
+			border-collapse: collapse;
+			border: #000 solid 2px;
+			clear: both;
+		}
+		td {
+			width: 44px;
+			height: 44px;
+			border: #ccc solid 1px;
+		}
+		.toplist li{
+			float: left;
+		}
+		.leftlist {
+			position: absolute;
+			top: 45px;
+			left: 0;
+		}
+		ul>li {
+			list-style-type: none;
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+		}
+		input {
+			margin: 10px 0;
+			height: 20px;
+			width: 200px;
+		}
+		button {
+			height: 25px;
+			width: 80px;
+			font-size: 14px;
+			cursor: pointer;
+			margin: 10px 10px 0 0;
+			border-radius: 5px;
+		}
+		.move {
+			width: 44px;
+			height: 44px;
+			position: absolute;
+			left: 227px;
+			top: 227px;
+			background-color: red;
+		}
+		.move div {
+			background-color: blue;
+		}
+		.top {
+			width: 100%;
+			height: 25%;
+		}
+		.right {
+			width: 25%;
+			height: 100%;
+			margin-left: 75%
+		}
+		.bottom {
+			width: 100%;
+			height: 25%;
+			margin-top: 75%;
+		}
+		.left {
+			width: 25%;
+			height: 100%;
+		}
+		.tips {
+			position: absolute;
+			top: 14px;
+			left: -150px;
+		}
+		.tips {
+			line-height: 24px;
+		}
+		#order_input {
+			width: 429px;
+			position: relative;
+			padding-left: 24px;
+			margin-top: 10px;
+			background-color: #ccc;
+			color: #fff;
+			height: 150px
+		}
+		#order_num {
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		#order_num li {
+			width: 24px;
+			text-align: center;
+			height: 25px;
+			line-height: 32px;
+			color: #fff;
+			overflow: hidden;
+		}
+		textarea {
+			background-color: #000;
+			color: lightgreen;
+			width: 429px;
+    		min-height: 150px;
+    		border: none;
+    		line-height: 25px;
+    		font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="tips">
+		<span>命令提示<br>也可以点击：</span>
+		<div id="order_1">
+			<button>GO</button><br>
+			<button>TUN LEF</button><br>
+			<button>TUN RIG</button><br>
+			<button>TUN BAC</button><br>
+			<button>TRA LEF</button><br>
+			<button>TRA TOP</button><br>
+			<button>TRA RIG</button><br>
+			<button>TRA BOT</button><br>
+			<button>MOV LEF</button><br>
+			<button>MOV TOP</button><br>
+			<button>MOV RIG</button><br>
+			<button>MOV BOT</button>
+		</div>
+	</div>
+	<ul class="toplist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<ul class="leftlist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<div class="move" id="move">
+		<div class="left"></div>
+	</div>
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<button id="order_exec">执行</button><button id="order_refresh">Refresh</button><br>
+	<div id="order_input">
+		<ul id="order_num"><li></li>
+		<li></li></ul>
+		<textarea cols="6" rows=""6 id=""></textarea>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="task_35.js"></script>
+</html>
