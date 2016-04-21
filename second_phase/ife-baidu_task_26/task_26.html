@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>task_36</title>
+	<title>task_26</title>
 	<style>
 		* {
 			margin: 0;
@@ -11,7 +11,7 @@
 		body {
 			background-color: #000;
 		}
-		.control {
+		#control {
 			background-color: #fff;
 			padding: 20px;
 			width: 380px;
@@ -24,7 +24,7 @@
 			padding: 2px;
 			cursor: pointer;
 		}
-		.console {
+		#order_screen {
 			float: left;
 			margin-top: 20px;
 			width: 380px;
@@ -32,11 +32,12 @@
 			color: lightgreen;
 			background-color: #333;
 		}
-		.universe {
+		#universe {
 			position: relative;
 			width: 600px;
 			height: 600px;
 			margin-left: 40%;
+			margin-top: -70px;
 		}
 		.planet {
 			width: 200px;
@@ -85,22 +86,22 @@
 			line-height: 40px;
 			transform: rotate(45deg);
 		}
-		#ship_1 {
+		#universe :nth-child(6) {
 			top: 138px;
 			left: 250px;
 			transform-origin :center 165px;
 		}
-		#ship_2 {
+		#universe :nth-child(7) {
 			top: 85px;
 			left: 250px;
 			transform-origin :center 215px;
 		}
-		#ship_3 {
+		#universe :nth-child(8) {
 			top: 35px;
 			left: 250px;
 			transform-origin :center 265px;
 		}
-		#ship_4 {
+		#universe :nth-child(n+9) {
 			top: -15px;
 			left: 250px;
 			transform-origin :center 315px;
@@ -108,13 +109,13 @@
 	</style>
 </head>
 <body>
-	<div class="control">
-		<span>对1号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button><br>
-		<span>对2号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button><br>
+	<div id="control">
+		<div><span>对1号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button></div>
+		<div><span>对2号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button></div>
 		<button>新的飞船起飞</button>
 	</div>
-	<div class="console"></div>
-	<div class="universe">
+	<div id="order_screen"></div>
+	<div id="universe">
 		<div class="planet"></div>
 		<div id="orbit_1" class="orbit"></div>
 		<div id="orbit_2" class="orbit"></div>
@@ -126,5 +127,5 @@
 		<div id="ship_4" class="spaceship">2号-<span>100%</span></div> -->
 	</div>
 </body>
-<script type="text/javascript" src="task_36.js"></script>
+<script type="text/javascript" src="task_26.js"></script>
 </html>
