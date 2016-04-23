@@ -45,6 +45,7 @@ window.onload = function () {
             renderTable(data);
         }
     });
+    addEventHandler(document,'mousewheel',frozenTh);//task29
 }
 //升序
 function increaseTb(data,key) {
@@ -71,5 +72,18 @@ function addEventHandler(ele, event, hanlder) {
         ele.attachEvent("on"+event, hanlder);
     } else  {
         ele["on" + event] = hanlder;
+    }
+}
+//下面这个是task29
+function frozenTh() {
+    console.log(myTable.offsetTop-document.body.scrollTop);
+    var dis = myTable.offsetTop - document.body.scrollTop;
+    if (dis <= 0) {
+        myTable.getElementsByTagName('tr')[0].className = 'frozen';
+        if (document.body.scrollTop > myTable.offsetHeight + 110) {
+            myTable.getElementsByTagName('tr')[0].className = '';
+        }
+    } else{
+        myTable.getElementsByTagName('tr')[0].className = '';
     }
 }
