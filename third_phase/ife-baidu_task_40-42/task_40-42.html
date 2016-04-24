@@ -1,0 +1,176 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_2-21</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.wrap {
+			margin: 10px 0 0 200px;
+			border-radius: 5px;
+			border: 1px solid #eee;
+			width: 340px;
+			text-align: center;
+		}
+		form {
+			background-color: #eee;
+			padding: 5px;
+			position: relative;
+		}
+		.left {
+			position: absolute;
+			left: 10px;
+			margin-right: 30px;
+		}
+		.right {
+			position: absolute;
+			right: 10px;
+			margin-left: 30px;
+		}
+		select {
+			width: 90px;
+			margin: 0 3px;
+			height: 50px;
+			font-size: 24px;
+		}
+		table {
+			margin: 5px auto;
+		}
+		th {
+			height: 30px;
+			width: 40px;
+		}
+		td {
+			background-color: #eee;
+			border: 1px solid #ccc;
+			height: 30px;
+			width: 40px;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		.choose, td:hover {
+			background-color: #FFEFD5;
+			border: 1px solid #FF8C00;
+		}
+		.hide {
+			background-color: #fff;
+			border: none;
+		}
+		.firsthide{
+			display: none;
+		}
+		.inputDay {
+			margin: 50px 0 0 200px;
+		}
+		input {
+			width: 40px;
+			margin: 0 5px;
+		}
+	</style>
+</head>
+<body>
+<div class="inputDay" id="inputDay">
+	请输入日期:<input type="text">年<input type="text">月<input type="text">日<button>确定</button>
+</div>
+<div class="wrap" id="wrap">
+	<form action="">
+		<button class="left">左</button>
+		<select name="" id="month">
+			<option value="1月">1月</option>
+			<option value="2月">2月</option>
+			<option value="3月">3月</option>
+			<option value="4月" selected="selected">4月</option>
+			<option value="5月">5月</option>
+			<option value="6月">6月</option>
+			<option value="7月">7月</option>
+			<option value="8月">8月</option>
+			<option value="9月">9月</option>
+			<option value="10月">10月</option>
+			<option value="11月">11月</option>
+			<option value="12月">12月</option>
+		</select>
+		<select name="" id="year">
+			<option value="2015">2015</option>
+			<option value="2016" selected="selected">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+		</select>
+		<button class="right">右</button>
+	</form>
+	<table class="calendar" id="calendar">
+		<thead>
+			<tr>
+				<th>Sun</th>
+				<th>Mon</th>
+				<th>Tues</th>
+				<th>Wed</th>
+				<th>Thur</th>
+				<th>Fri</th>
+				<th>Sat</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>		
+	</table>
+</div>
+<script type="text/javascript" src="task_40-42.js"></script>
+</body>
+</html>
