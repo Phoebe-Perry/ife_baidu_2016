@@ -11,6 +11,7 @@ function addEventHandler(ele, event, hanlder) {
 var selectMonth = document.getElementById('month'),
 	selectYear = document.getElementById('year'),
 	myCalendar = document.getElementById('calendar'),
+	inputBtn = document.getElementsByTagName('button')[0],
 	getMyMonth = '', getMyYear = '',
 	myDayArr = [],
 	tdArr = document.getElementsByTagName('tbody')[0].getElementsByTagName('td'),
@@ -20,19 +21,25 @@ var selectMonth = document.getElementById('month'),
 
 window.onload = function () {
 	init(2016,4);
-	addEventHandler(selectYear,'change',changeCalendar);
+	addEventHandler(inputDiv,'click',function () {
+		console.log(event.target);
+		event.target.value = '';
+	});//为啥用focus就不行
+	addEventHandler(inputBtn,'click',inputDate);
+	addEventHandler(selectYear,'change',changeCalendar(selectYear.value,selectMonth.value));
 	addEventHandler(selectMonth,'change',changeCalendar);
 	addEventHandler(myCalendar,'click',chooseDay);
 }
 
 //选择年月
-function changeCalendar() {
+function changeCalendar(year,month) {
 	for (var i = 0; i < tdArr.length; i++) {
 		tdArr[i].innerHTML = '';
 		tdArr[i].className = '';
 	}
-	getMyYear = selectYear.value;
-	getMyMonth = selectMonth.value[0];
+	console.log(year);
+	getMyYear = year;
+	getMyMonth = parseInt(month);
 	//怎么获得某年某月的所有天
 	init(getMyYear,getMyMonth);
 	
@@ -91,22 +98,17 @@ function chooseDay() {
 
 //输入日期
 function inputDate() {
-	//正则检验
-	//获得年月日
-	changeCalendar();
+	var myYear = inputArr[0].value, myMonth = inputArr[1].value,
+		day = new Date(myYear,myMonth,0);
+	if (/^\d{4}$/.test(myYear) && myMonth <= 12 && myMonth >= 1 && inputArr[2].value <= day.getDate()) {
+		changeCalendar(myYear,myMonth);
+		console.log(myYear,myMonth);
+	} else {
+		inputDiv.innerHTML += '<br />请输入正确日期'
+	}
 	for (var i = 0; i < tdArr.length; i++) {
-		if (tdArr[i].value == 'input值') {
-			
+		if (tdArr[i].innerHTML == inputArr[2].value) {
+			tdArr[i].className = 'choose';
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
