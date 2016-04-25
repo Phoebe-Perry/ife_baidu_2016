@@ -74,7 +74,7 @@ function addEventHandler(ele, event, hanlder) {
         ele["on" + event] = hanlder;
     }
 }
-//下面这个是task29
+//下面这个是task39
 function frozenTh() {
     console.log(myTable.offsetTop-document.body.scrollTop);
     var dis = myTable.offsetTop - document.body.scrollTop;
