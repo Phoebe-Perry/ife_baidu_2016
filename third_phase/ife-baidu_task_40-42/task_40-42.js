@@ -46,7 +46,6 @@ function ctrWrap() {
 		myWrap.style.display = 'block';
 		myMask.style.display = 'block';
 	}
-	init(2016,4);
 }
 
 //初始化填充年月
@@ -55,24 +54,36 @@ function renderMY() {
 		monthText += '<option>' + (i+1) + '月</option>';
 	}
 	selectMonth.innerHTML = monthText;
-	var optionMonth = selectMonth.getElementsByTagName('option');
-	for (var i = 0; i < optionMonth.length; i++) {
-		optionMonth[i].value = optionMonth[i].innerHTML;
-	}
-
-	for (var i = 1911; i < 2111; i++) {
+	for (var i = 1992; i < 2112; i++) {
 		yearText += '<option>' + i + '</option>';
 	}
 	selectYear.innerHTML = yearText;
+	var d = new Date();
+	init(d.getFullYear(),d.getMonth()+1);
+	var optionMonth = selectMonth.getElementsByTagName('option');
+	for (var i = 0; i < optionMonth.length; i++) {
+		if (parseInt(optionMonth[i].innerHTML) == d.getMonth()+1) {
+			console.log(optionMonth[i]);
+			optionMonth[i].selected = 'selected';
+		}
+	}
 	var optionYear = selectYear.getElementsByTagName('option');
 	for (var i = 0; i < optionYear.length; i++) {
-		optionYear[i].value = optionYear[i].innerHTML;
+		if (optionYear[i].innerHTML == d.getFullYear()) {
+			console.log(optionYear[i]);
+			optionYear[i].selected = 'selected';
+		}
+	}
+	var optionDay = myCalendar.getElementsByTagName('td');
+	for (var i = 0; i < optionDay.length; i++) {
+		if (optionDay[i].innerHTML == d.getDate()) {
+			optionDay[i].className = 'choose'; 
+		}
 	}
 }
 
 //选择年月
 function changeCalendar(year,month) {
-	console.log(year,month);
 	for (var i = 0; i < tdArr.length; i++) {
 		tdArr[i].innerHTML = '';
 		tdArr[i].className = '';
