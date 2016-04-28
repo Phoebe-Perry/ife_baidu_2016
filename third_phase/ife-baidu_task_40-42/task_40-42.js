@@ -11,38 +11,76 @@ function addEventHandler(ele, event, hanlder) {
 var selectMonth = document.getElementById('month'),
 	selectYear = document.getElementById('year'),
 	myCalendar = document.getElementById('calendar'),
-	inputBtn = document.getElementsByTagName('button')[0],
+	myWrap = document.getElementById('wrap'),
+	myMask = document.getElementById('mask'),
 	getMyMonth = '', getMyYear = '',
 	myDayArr = [],
 	tdArr = document.getElementsByTagName('tbody')[0].getElementsByTagName('td'),
 	inputDiv = document.getElementById('inputDay'),
-	inputArr = inputDiv.getElementsByTagName('input'),
+	inputValue = inputDiv.getElementsByTagName('input')[0],
 	firstDay = new Date();
+var k = 0;
+var monthText = '', yearText = '';
 
 window.onload = function () {
-	init(2016,4);
-	addEventHandler(inputDiv,'click',function () {
-		console.log(event.target);
-		event.target.value = '';
-	});//为啥用focus就不行
-	addEventHandler(inputBtn,'click',inputDate);
-	addEventHandler(selectYear,'change',changeCalendar(selectYear.value,selectMonth.value));
-	addEventHandler(selectMonth,'change',changeCalendar);
+	renderMY();//初始化
+	addEventHandler(inputDiv,'click',ctrWrap);//显示与隐藏日历
+	addEventHandler(myMask,'click',function () {
+		myWrap.style.display = 'none';
+		myMask.style.display = 'none';
+		k++;
+	});
+	addEventHandler(myWrap,'change',function () {
+		changeCalendar(selectYear.value,selectMonth.value);
+	});//自选年月
 	addEventHandler(myCalendar,'click',chooseDay);
+}
+
+//显示与隐藏wrap
+function ctrWrap() {
+	k++;
+	if (k%2 == 0) {
+		myWrap.style.display = 'none';
+		myMask.style.display = 'none';
+	} else {
+		myWrap.style.display = 'block';
+		myMask.style.display = 'block';
+	}
+	init(2016,4);
+}
+
+//初始化填充年月
+function renderMY() {
+	for (var i = 0; i < 11; i++) {
+		monthText += '<option>' + (i+1) + '月</option>';
+	}
+	selectMonth.innerHTML = monthText;
+	var optionMonth = selectMonth.getElementsByTagName('option');
+	for (var i = 0; i < optionMonth.length; i++) {
+		optionMonth[i].value = optionMonth[i].innerHTML;
+	}
+
+	for (var i = 1911; i < 2111; i++) {
+		yearText += '<option>' + i + '</option>';
+	}
+	selectYear.innerHTML = yearText;
+	var optionYear = selectYear.getElementsByTagName('option');
+	for (var i = 0; i < optionYear.length; i++) {
+		optionYear[i].value = optionYear[i].innerHTML;
+	}
 }
 
 //选择年月
 function changeCalendar(year,month) {
+	console.log(year,month);
 	for (var i = 0; i < tdArr.length; i++) {
 		tdArr[i].innerHTML = '';
 		tdArr[i].className = '';
 	}
-	console.log(year);
 	getMyYear = year;
 	getMyMonth = parseInt(month);
 	//怎么获得某年某月的所有天
 	init(getMyYear,getMyMonth);
-	
 }
 
 //显示某年某月的日历
@@ -73,42 +111,13 @@ function init(myYear,myMonth) {
 //选择日期、返回日期
 function chooseDay() {
 	if (event.target.tagName == 'TD') {
-		if (!event.target.className) {
-			for (var i = 0; i < tdArr.length; i++) {
-				if (tdArr[i].className == 'choose') {
-					tdArr[i].className = '';	
-				}
-			}
-			event.target.className = 'choose';
-			var showDay = event.target.innerHTML;
-			inputArr[0].value = selectYear.value;
-			inputArr[1].value = selectMonth.value[0];
-			inputArr[2].value = showDay;		
-		} else {
-			event.target.className = '';
-			for (var i = 0; i < inputArr.length; i++) {
-				inputArr[i].value = '';
-			}
-			/*inputArr.forEach(function (item) {
-				item.value = '';
-			})不知道为啥这个forEach就是用不了*/
-		}
-	}
-}
-
-//输入日期
-function inputDate() {
-	var myYear = inputArr[0].value, myMonth = inputArr[1].value,
-		day = new Date(myYear,myMonth,0);
-	if (/^\d{4}$/.test(myYear) && myMonth <= 12 && myMonth >= 1 && inputArr[2].value <= day.getDate()) {
-		changeCalendar(myYear,myMonth);
-		console.log(myYear,myMonth);
-	} else {
-		inputDiv.innerHTML += '<br />请输入正确日期'
-	}
-	for (var i = 0; i < tdArr.length; i++) {
-		if (tdArr[i].innerHTML == inputArr[2].value) {
-			tdArr[i].className = 'choose';
-		}
+		var m = '', d = '';
+		m = selectMonth.value[0] < 10 ? '0'+selectMonth.value[0] : selectMonth.value[0];
+		d = event.target.innerHTML < 10 ? '0'+event.target.innerHTML : event.target.innerHTML;
+		var chooseDate = selectYear.value + '-' + m + '-' + d;
+		inputValue.value = chooseDate;
+		myWrap.style.display = 'none';
+		myMask.style.display = 'none';
+		k++;
 	}
 }
