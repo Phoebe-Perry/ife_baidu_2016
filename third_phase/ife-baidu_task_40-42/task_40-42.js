@@ -12,7 +12,7 @@ var selectMonth = document.getElementById('month'),
 	selectYear = document.getElementById('year'),
 	myCalendar = document.getElementById('calendar'),
 	myWrap = document.getElementById('wrap'),
-	wrapBtn = myWrap.getElementsByTagName('button'),
+	wrapBtn = myWrap.getElementsByTagName('div'),
 	myMask = document.getElementById('mask'),
 	chooseDays = document.getElementById('choose_days'),
 	multipleDays = chooseDays.getElementsByTagName('button')[0],
@@ -35,20 +35,31 @@ window.onload = function () {
 		k++;
 	});
 	addEventHandler(wrapBtn[0],'click',function () {
-		changeCalendar(selectYear.value,parseInt(selectMonth.value)-1);
+		if (parseInt(selectMonth.value) > 1) {
+			selectMonth.value = parseInt(selectMonth.value)-1 + '月';
+		} else {
+			selectMonth.value = 12 + '月';
+			selectYear.value--;
+		}
+		changeCalendar(selectYear.value, parseInt(selectMonth.value));
 	});
 	addEventHandler(wrapBtn[1],'click',function () {
-		changeCalendar(selectYear.value,parseInt(selectMonth.value)+1);
+		if (parseInt(selectMonth.value) < 12) {
+			selectMonth.value = parseInt(selectMonth.value)+1 + '月';
+		} else {
+			selectMonth.value = 1 + '月';
+			selectYear.value++;
+		}		
+		changeCalendar(selectYear.value,parseInt(selectMonth.value));		
 	});//这两个函数不起作用
-	addEventHandler(chooseDays,'click',function () {
+/*	addEventHandler(chooseDays,'click',function () {
 		myWrap.style.display = 'block';
 		myMask.style.display = 'block';
-			multipleDays.disabled = '';
-			singleDays.disabled = '';
+		multipleDays.disabled = '';
+		singleDays.disabled = '';
 		event.target.disabled = 'disabled';
-
-		addEventHandler(myCalendar,'click',chooseSingleDay);//选择一个时间
-	});
+	});*/
+	addEventHandler(myCalendar,'click',chooseSingleDay);
 	addEventHandler(myWrap,'change',function () {
 		changeCalendar(selectYear.value,selectMonth.value);
 	});//自选年月
@@ -68,7 +79,7 @@ function ctrWrap() {
 
 //初始化填充年月
 function renderMY() {
-	for (var i = 0; i < 11; i++) {
+	for (var i = 0; i < 12; i++) {
 		monthText += '<option>' + (i+1) + '月</option>';
 	}
 	selectMonth.innerHTML = monthText;
@@ -81,14 +92,12 @@ function renderMY() {
 	var optionMonth = selectMonth.getElementsByTagName('option');
 	for (var i = 0; i < optionMonth.length; i++) {
 		if (parseInt(optionMonth[i].innerHTML) == d.getMonth()+1) {
-			console.log(optionMonth[i]);
 			optionMonth[i].selected = 'selected';
 		}
 	}
 	var optionYear = selectYear.getElementsByTagName('option');
 	for (var i = 0; i < optionYear.length; i++) {
 		if (optionYear[i].innerHTML == d.getFullYear()) {
-			console.log(optionYear[i]);
 			optionYear[i].selected = 'selected';
 		}
 	}

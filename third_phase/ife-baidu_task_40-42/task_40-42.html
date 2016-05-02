@@ -25,27 +25,31 @@
 			z-index: 2;
 		}
 		.left {
-			left: 10px;
-			top: -1px;
-			margin-right: 30px;
-			background: url(images/prev.png) no-repeat;
+			width: 0px;
+			height:0px;
+			border-width: 7px;
+			border-style: solid;
+			border-color: transparent #000 transparent transparent;
+			left: 15px;
 		}
 		.right {
-			right: 10px;
-			top: 1px;
-			margin-left: 30px;
-			background: url(images/next.png) no-repeat;
+			width: 0px;
+			height:0px;
+			border-width: 7px;
+			border-style: solid;
+			border-color: transparent transparent transparent #000;
+			right: 15px;
 		}
 		.left, .right {
 			position: absolute;
-			width: 35px;
-			height: 35px;
+			top: 9px;
 			cursor: pointer;
-			border: none;
-			-webkit-background-size: 30px 30px;
-			background-size: 30px 30px;
 		}
-		.left:active, .right:active {
+		.left:active {
+			border-color: transparent #fff transparent transparent;
+		}
+		.right:active {
+			border-color: transparent transparent transparent #fff;
 		}
 		select {
 			width: 90px;
@@ -127,8 +131,8 @@
 </div>
 <div class="wrap" id="wrap">
 	<form action="">
-		<button class="left"></button>
-		<button class="right"></button>
+		<div class="left"></div>
+		<div class="right"></div>
 		<select name="" id="month"></select>
 		<select name="" id="year"></select>
 	</form>
