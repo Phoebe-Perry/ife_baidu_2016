@@ -12,7 +12,11 @@ var selectMonth = document.getElementById('month'),
 	selectYear = document.getElementById('year'),
 	myCalendar = document.getElementById('calendar'),
 	myWrap = document.getElementById('wrap'),
+	wrapBtn = myWrap.getElementsByTagName('button'),
 	myMask = document.getElementById('mask'),
+	chooseDays = document.getElementById('choose_days'),
+	multipleDays = chooseDays.getElementsByTagName('button')[0],
+	singleDays = chooseDays.getElementsByTagName('button')[1],
 	getMyMonth = '', getMyYear = '',
 	myDayArr = [],
 	tdArr = document.getElementsByTagName('tbody')[0].getElementsByTagName('td'),
@@ -30,10 +34,24 @@ window.onload = function () {
 		myMask.style.display = 'none';
 		k++;
 	});
+	addEventHandler(wrapBtn[0],'click',function () {
+		changeCalendar(selectYear.value,parseInt(selectMonth.value)-1);
+	});
+	addEventHandler(wrapBtn[1],'click',function () {
+		changeCalendar(selectYear.value,parseInt(selectMonth.value)+1);
+	});//这两个函数不起作用
+	addEventHandler(chooseDays,'click',function () {
+		myWrap.style.display = 'block';
+		myMask.style.display = 'block';
+			multipleDays.disabled = '';
+			singleDays.disabled = '';
+		event.target.disabled = 'disabled';
+
+		addEventHandler(myCalendar,'click',chooseSingleDay);//选择一个时间
+	});
 	addEventHandler(myWrap,'change',function () {
 		changeCalendar(selectYear.value,selectMonth.value);
 	});//自选年月
-	addEventHandler(myCalendar,'click',chooseDay);
 }
 
 //显示与隐藏wrap
@@ -80,7 +98,7 @@ function renderMY() {
 			optionDay[i].className = 'choose'; 
 		}
 	}
-}
+}//感觉这个函数写的好长好麻烦……
 
 //选择年月
 function changeCalendar(year,month) {
@@ -120,7 +138,7 @@ function init(myYear,myMonth) {
 }
 
 //选择日期、返回日期
-function chooseDay() {
+function chooseSingleDay() {
 	if (event.target.tagName == 'TD') {
 		var m = '', d = '';
 		m = selectMonth.value[0] < 10 ? '0'+selectMonth.value[0] : selectMonth.value[0];
@@ -132,3 +150,29 @@ function chooseDay() {
 		k++;
 	}
 }
+//选择一段时间
+function chooseMultipleDay() {
+	if (event.target.tagName == 'TD') {
+		var m = '', d = '';
+		m = selectMonth.value[0] < 10 ? '0'+selectMonth.value[0] : selectMonth.value[0];
+		d = event.target.innerHTML < 10 ? '0'+event.target.innerHTML : event.target.innerHTML;
+		var chooseDate1 = selectYear.value + '-' + m + '-' + d;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

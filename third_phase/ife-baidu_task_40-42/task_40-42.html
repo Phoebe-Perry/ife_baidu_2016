@@ -39,9 +39,11 @@
 		.left, .right {
 			position: absolute;
 			width: 35px;
+			height: 35px;
 			cursor: pointer;
-			-webkit-background-size: 30px;
-			background-size: 30px;
+			border: none;
+			-webkit-background-size: 30px 30px;
+			background-size: 30px 30px;
 		}
 		.left:active, .right:active {
 		}
@@ -80,21 +82,30 @@
 		.firsthide{
 			display: none;
 		}
-		.inputDay {
+		.choose_days {
 			margin: 50px 0 0 200px;
+			z-index: 2;
+			position: relative;
+		}
+		.inputDay {
+			margin: 10px 0 0 200px;
 		}
 		input {
 			width: 170px;
 			height: 32px;
 			vertical-align: middle;
 		}
-		button {
+		.icon {
 			width: 32px;
 			height: 31px;
 			background: url(images/calendar.png) no-repeat;
 			background-size: 32px 31px;
 			border: none;
 			vertical-align: middle;
+		}
+		.choose_days button {
+			width: 150px;
+			height: 30px;
 		}
 		.mask {
 			display: none;
@@ -107,8 +118,12 @@
 	</style>
 </head>
 <body>
+<div class="choose_days" id="choose_days">
+	<button>我要选择一段日期</button>
+	<button>我要选择一个日期</button>	
+</div>
 <div class="inputDay" id="inputDay">
-	<button></button><input type="text">
+	<button class="icon"></button><input type="text">
 </div>
 <div class="wrap" id="wrap">
 	<form action="">
