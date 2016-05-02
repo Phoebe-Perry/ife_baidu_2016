@@ -7,6 +7,15 @@ function addEventHandler(ele, event, hanlder) {
         ele["on" + event] = hanlder;
     }
 }
+function removeEventHandler(ele, event, hanlder) {
+    if (ele.removeEventListener) {
+        ele.removeEventListener(event, hanlder, false);
+    } else if (ele.detachEvent) {
+        ele.detachEvent("on"+event, hanlder);
+    } else  {
+        ele["on" + event] = null;
+    }	
+}
 
 var selectMonth = document.getElementById('month'),
 	selectYear = document.getElementById('year'),
@@ -25,6 +34,7 @@ var selectMonth = document.getElementById('month'),
 	firstDay = new Date();
 var k = 0;
 var monthText = '', yearText = '';
+var chooseDateArr = [];
 
 window.onload = function () {
 	renderMY();//初始化
@@ -34,6 +44,7 @@ window.onload = function () {
 		myMask.style.display = 'none';
 		k++;
 	});
+
 	addEventHandler(wrapBtn[0],'click',function () {
 		if (parseInt(selectMonth.value) > 1) {
 			selectMonth.value = parseInt(selectMonth.value)-1 + '月';
@@ -51,15 +62,23 @@ window.onload = function () {
 			selectYear.value++;
 		}		
 		changeCalendar(selectYear.value,parseInt(selectMonth.value));		
-	});//这两个函数不起作用
-/*	addEventHandler(chooseDays,'click',function () {
+	});
+
+	addEventHandler(chooseDays,'click',function () {
 		myWrap.style.display = 'block';
 		myMask.style.display = 'block';
 		multipleDays.disabled = '';
 		singleDays.disabled = '';
 		event.target.disabled = 'disabled';
-	});*/
-	addEventHandler(myCalendar,'click',chooseSingleDay);
+		if (event.target.nextElementSibling) {
+			removeEventHandler(myCalendar,'click',chooseMultipleDay);
+			addEventHandler(myCalendar,'click',chooseSingleDay);
+		} else {
+			removeEventHandler(myCalendar,'click',chooseSingleDay);
+			addEventHandler(myCalendar,'click',chooseMultipleDay);
+		}
+	});
+
 	addEventHandler(myWrap,'change',function () {
 		changeCalendar(selectYear.value,selectMonth.value);
 	});//自选年月
@@ -165,8 +184,23 @@ function chooseMultipleDay() {
 		var m = '', d = '';
 		m = selectMonth.value[0] < 10 ? '0'+selectMonth.value[0] : selectMonth.value[0];
 		d = event.target.innerHTML < 10 ? '0'+event.target.innerHTML : event.target.innerHTML;
-		var chooseDate1 = selectYear.value + '-' + m + '-' + d;
+		var chooseDate = selectYear.value + '-' + m + '-' + d;
+		if (event.target.className) {
+			event.target.className = '';
+		} else {
+			event.target.className = 'choose';
+		}
 	}
+	chooseDateArr.push(chooseDate);
+	if (chooseDateArr.length == 2) {
+		chooseDateArr.sort();
+		inputValue.value = chooseDateArr.join('--');
+		myWrap.style.display = 'none';
+		myMask.style.display = 'none';
+		k++;
+		chooseDateArr = [];
+	}
+
 }
 
 
