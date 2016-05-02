@@ -66,7 +66,9 @@ Spaceship.prototype.powerSystem = function() {
 	}
 };
 Spaceship.prototype.energySystem = function() {
+	console.log(this);
 	this.energy += CHARGE;
+	console.log(1);
 	if (this.energy > 100) {
 		this.energy = 100;
 	}
@@ -122,7 +124,7 @@ var Commander = {
 			newShip.style.top = 135 - (shipId-1)*50 + 'px';
 			newShip.style.transformOrigin = 'center' + ' ' + (165 + (shipId-1)*50) + 'px';
 			newOrder.innerHTML = '<span>对' +(orderArr.length+1)+ '号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button>';
-			control.insertBefore(newOrder,control.lastElementChild);
+			control.appendChild(newOrder,control.lastElementChild);
 			orderLog('指挥官：发送命令，创建' + (shipId) + '号飞船');
 	    	SPACE_SHIPS.push(new Spaceship(shipId));
 		} else {
@@ -163,20 +165,22 @@ function mediator (shipId,cmd) {
 		stop: '停止',
 		destroy: '销毁'
 	};
-	if (Math.random() <= ERRORRATE) {
+	/*	if (Math.random() <= ERRORRATE) {
 		orderLog('传输：命令传输过程出现错误，传输失败');
 	} else {
 		setTimeout(function () {
 			orderLog('传输：命令传输成功，让' + shipId +'号飞船' + cmdArr[cmd]);
-			var tmpShips = [];
-			for (var i = 0; i < SPACE_SHIPS.length; i++) {
-		        tmpShips.push(SPACE_SHIPS[i]);
-		    }
-		    for (var i = 0; i < tmpShips.length; i++) {
-		        if (typeof tmpShips[i].signalSystem === 'function') {
-		            tmpShips[i].signalSystem(shipId,cmd);//广播信息后会传给每个订阅者
-		        }
-		    }
 		},1000);
-	}
+	}*/
+	//调试的时候太麻烦，先关了
+	orderLog('传输：命令传输成功，让' + shipId +'号飞船' + cmdArr[cmd]);
+	var tmpShips = [];
+	for (var i = 0; i < SPACE_SHIPS.length; i++) {
+        tmpShips.push(SPACE_SHIPS[i]);
+    }
+    for (var i = 0; i < tmpShips.length; i++) {
+        if (typeof tmpShips[i].signalSystem === 'function') {
+            tmpShips[i].signalSystem(shipId,cmd);//广播信息后会传给每个订阅者
+        }
+    }
 }
