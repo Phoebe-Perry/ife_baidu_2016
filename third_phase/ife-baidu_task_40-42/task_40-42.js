@@ -33,8 +33,8 @@ var selectMonth = document.getElementById('month'),
 	inputValue = inputDiv.getElementsByTagName('input')[0],
 	firstDay = new Date();
 var k = 0;
-var monthText = '', yearText = '';
-var chooseDateArr = [];
+var monthText = '', yearText = '', chooseDateArr = [];
+var MIN_GAP = 1, MAX_GAP = 10;
 
 window.onload = function () {
 	renderMY();//初始化
@@ -63,7 +63,8 @@ window.onload = function () {
 		}		
 		changeCalendar(selectYear.value,parseInt(selectMonth.value));		
 	});
-
+	//以下：默认选择一个日期
+	addEventHandler(myCalendar,'click',chooseSingleDay);
 	addEventHandler(chooseDays,'click',function () {
 		myWrap.style.display = 'block';
 		myMask.style.display = 'block';
@@ -122,8 +123,19 @@ function renderMY() {
 	}
 	var optionDay = myCalendar.getElementsByTagName('td');
 	for (var i = 0; i < optionDay.length; i++) {
-		if (optionDay[i].innerHTML == d.getDate()) {
-			optionDay[i].className = 'choose'; 
+		if (optionDay[i].innerHTML) {
+			optionDay[i].onmouseover = function () {
+				event.target.style.backgroundColor = '#FFEFD5';
+				event.target.style.border = '1px solid #FF8C00';
+			}
+			optionDay[i].onmouseout = function () {
+				event.target.style.backgroundColor = '#eee';
+				event.target.style.border = '1px solid #ccc';
+			}
+			if (optionDay[i].innerHTML == d.getDate()) {
+				optionDay[i].onmouseout = null;
+				optionDay[i].className = 'choose';
+			}	
 		}
 	}
 }//感觉这个函数写的好长好麻烦……
@@ -189,33 +201,25 @@ function chooseMultipleDay() {
 			event.target.className = '';
 		} else {
 			event.target.className = 'choose';
+			event.target.style.backgroundColor = '#FFEFD5';
+			event.target.style.border = '1px solid #FF8C00';
 		}
 	}
 	chooseDateArr.push(chooseDate);
 	if (chooseDateArr.length == 2) {
 		chooseDateArr.sort();
-		inputValue.value = chooseDateArr.join('--');
-		myWrap.style.display = 'none';
-		myMask.style.display = 'none';
-		k++;
-		chooseDateArr = [];
+		var date1 = new Date(), date2 = new Date();
+		date1.setFullYear(chooseDateArr[0].substring(0,4),chooseDateArr[0].substring(5,7),chooseDateArr[0].substring(8,10));
+		date2.setFullYear(chooseDateArr[1].substring(0,4),chooseDateArr[1].substring(5,7),chooseDateArr[1].substring(8,10));
+		var gap = (date2.getTime()-date1.getTime())/(24*3600*1000);
+		if ( gap <= MAX_GAP && gap >= MIN_GAP) {
+			inputValue.value = chooseDateArr.join('--');
+			myWrap.style.display = 'none';
+			myMask.style.display = 'none';
+			k++;
+		} else {
+			alert('所选时间范围超出设定，请选择时间范围在2-10天')
+		}
+	chooseDateArr = [];
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
