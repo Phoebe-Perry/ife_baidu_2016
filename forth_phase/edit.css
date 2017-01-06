@@ -1,0 +1,73 @@
+#main_edit {
+	margin: 50px auto;
+	width: 63.8%;
+	background-color: #fff;
+	padding: 20px 30px;
+}
+* {
+	line-height: 2;
+}
+input,textarea {
+	margin-left: 30px;
+	vertical-align:middle;
+	padding-left: 10px;
+}
+h3 {
+	padding: 10px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+h3:hover {
+	background: #FFF0E7;
+}
+#ques_zone {
+	padding: 15px 20px;
+	border-top: 1px solid #BEBEBE;
+	border-bottom: 1px solid #BEBEBE;
+}
+.ques_unit {
+	width: 100%;
+	margin: 10px auto;
+}
+.ques_unit p {
+	text-align: right;
+	font-size: 0.7em;
+	display: none;
+}
+.ques_unit span {
+	margin-right: 8px; 
+}
+.ques_unit_select {
+	background: #FFF1E5;
+}
+#add_q {
+	margin-top: 30px;
+	border: 1px solid #D2D2D2;
+	text-align: center;
+}
+#add_q span{
+	display: inline-block;
+	margin: 10px;
+	width: 70px;
+	border: 1px solid #CCC;
+	background: #EEE;
+}
+#add_q div {
+	font-size: 1.5em;
+	cursor: pointer;
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	background-color: #eee;
+}
+#date {
+	padding: 20px 100px;
+}
+#date div {
+	margin-right: 200px;
+	display: inline-block;
+}
+.necessary {
+	float: right;
+	margin: -32px;
+}

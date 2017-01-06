@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_22</title>
+	<style>
+		.root {
+			display: flex;
+			padding: 20px;
+			width: 1000px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			margin-bottom: 10px;
+			justify-content: space-between;
+		}
+		.child_1 {
+			display: flex;
+			padding: 20px;
+			width: 450px;
+			height: 260px;
+			border: 1px solid red;
+			justify-content: space-between;
+		}
+		.child_2 {
+			display: flex;
+			padding: 20px;
+			width: 170px;
+			height: 220px;
+			border: 1px solid green;
+			justify-content: space-between;
+		}
+		.child_3 {
+			display: flex;
+			padding: 20px;
+			width: 35px;
+			height: 180px;
+			border: 1px solid blue;
+			justify-content: space-between;
+		}
+		input {
+			margin-left: 100px;
+			width: 50px;
+			height: 40px;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="root">
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+	</div>
+	<input type="button" value="前序">
+	<input type="button" value="中序">
+	<input type="button" value="后序">
+<script type="text/javascript" src="task_22.js"></script>
+</body>
+</html>

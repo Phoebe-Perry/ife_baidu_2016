@@ -1,0 +1,98 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_2-18</title>
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		width: 400px;
+		margin: 0 auto;
+	}
+	#ctrl {
+		margin: 5px 0 20px;
+	}
+	#ctrl button {
+		padding: 3px;
+	}
+	#list span {
+		padding: 10px;
+		margin-right: 5px;
+		background-color: red;
+		color: white;
+		line-height: 15px;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+<div id="ctrl">
+	<input type="text" id="inputNum">
+	<button id="left_in">左侧入</button>
+	<button id="right_in">右侧入</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="left_out">左侧出</button>
+	<button id="right_out">右侧出</button>
+</div>
+<div id="list">
+</div>
+<script>
+window.onload = function () {
+	document.getElementById('left_in').onclick = leftIn;
+	document.getElementById('right_in').onclick = rightIn;
+	document.getElementById('left_out').onclick = leftOut;
+	document.getElementById('right_out').onclick = rightOut;
+	list.addEventListener('click',function(e) { //使用事件委托
+		if(e.target && e.target.nodeName == "SPAN") { 
+			list.removeChild(e.target);
+		}
+	});
+}
+var list = document.getElementById('list');
+var numTest = /^\d+$/;
+var innerSpan = document.getElementsByTagName('span');
+function leftIn() {
+	var num = document.getElementById('inputNum').value;
+	var newSpan = document.createElement('span');
+	newSpan.innerText = num;
+	if(!numTest.test(num)) {
+		alert('Number is Wrong');
+	}
+	else if(!innerSpan) {
+		list.appendChild(newSpan[0]);
+	} else {
+		list.insertBefore(newSpan,innerSpan[0])
+	}
+}
+function rightIn() {
+	var num = document.getElementById('inputNum').value;
+	var newSpan = document.createElement('span');
+	newSpan.innerText = num;
+	if (!numTest.test(num)) {
+		alert('Number is Wrong');
+	} else {
+		list.appendChild(newSpan);
+	}	
+}
+function leftOut() {
+	var listSpan = document.getElementsByTagName('span')[0];
+	if (!listSpan) {
+		alert('No Number');
+	} else {
+		list.removeChild(list.firstChild);
+	}
+}
+function rightOut() {
+	var listSpan = document.getElementsByTagName('span')[0];
+	if (!listSpan) {
+		alert('No Number');
+	} else {
+		list.removeChild(list.lastElementChild);
+	}	
+}
+</script>
+</body>
+</html>

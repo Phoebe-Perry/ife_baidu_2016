@@ -18,10 +18,15 @@
     margin-right: 20px;
     margin-bottom: 20px;
 }
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 @media (max-width: 768px) {
   .col-sm-2, .col-sm-3, .col-sm-6, .col-sm-8, .col-sm-12 {
-    float: left;
   }
   .col-sm-12 {
     width: calc(100% - 22px);
@@ -41,7 +46,6 @@
 }
 @media (min-width: 768px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-6, {
-    float: left;
   }
   .col-md-6 {
     width: calc(50% - 22px);

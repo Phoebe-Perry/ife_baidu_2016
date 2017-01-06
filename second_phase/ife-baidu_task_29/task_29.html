@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_29</title>
+	<style>
+		table {
+			margin: 50px auto;
+		}
+		td:first-child {
+			height: 50px;
+			font-size: 24px;
+			padding-right: 30px;
+		}
+		td:nth-child(3) {
+			padding-left: 10px;
+		}
+		input {
+			width: 250px;
+			height: 32px;
+			border-radius: 5px;
+			border-color: #ccc;
+		}
+		button {
+			background-color: #2563AD;
+			color: #fff;
+			height: 40px;
+			width: 90px;
+			font-size: 24px;
+			border: none;
+			border-radius: 5px;
+		}
+		#info {
+			color: #ccc;
+			font-size: 20px;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>名称</td>
+			<td><input type="text"></td>
+			<td><button>验证</button></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="info">必填，长度为4~16个字符</td>
+			<td></td>
+		</tr>
+	</table>	
+</body>
+<script>
+	var inputName = document.getElementsByTagName('input')[0],
+		infoWord = document.getElementById('info');
+
+	document.getElementsByTagName('button')[0].onclick = validate;
+	
+	function validate() {
+		var inputValue = inputName.value;
+		if (countLength(inputValue) == 0) {
+			infoWord.innerHTML = '姓名不能为空';
+			infoWord.style.color = 'red';
+			inputName.style.border = '1px solid red';
+		} else if (countLength(inputValue) >=4 && countLength(inputValue) <= 16) {
+			infoWord.innerHTML = '格式正确';
+			infoWord.style.color = 'lightgreen';
+			inputName.style.border = '1px solid lightgreen';
+		} else {
+			infoWord.innerHTML = '请输入长度为4~16位字符';
+			infoWord.style.color = 'red'
+			inputName.style.border = '1px solid red';
+		}
+	}
+
+	function countLength(str) {
+		var inputLength = 0;
+		for (var i = 0; i < str.length; i++) {
+			var countCode = str.charCodeAt(i);
+			if (countCode >= 0 && countCode <=128) {
+				inputLength += 1;
+			} else {
+				inputLength += 2;
+			}
+		}
+		return inputLength;
+	}
+</script>
+</html>

@@ -1,0 +1,19 @@
+#main {
+	margin: 100px auto;
+	width: 65.8%;
+	height: 233px;
+	background-color: #fff;
+}
+#main #ctrl_n {
+	background-color: #fc6600;
+	color: #fff;
+	border: none;
+	position: relative;
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+	left: 50%;
+	top: 50%;
+	margin-left: -75px;
+	margin-top: -20px;
+}

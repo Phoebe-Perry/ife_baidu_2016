@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_33</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			margin-left: 50%;
+			left: -250px;
+			position: relative;
+			padding-left: 45px;
+		}
+		table {
+			border-collapse: collapse;
+			border: #000 solid 2px;
+			clear: both;
+		}
+		td {
+			width: 44px;
+			height: 44px;
+			border: #ccc solid 1px;
+		}
+		.toplist li{
+			float: left;
+		}
+		.leftlist {
+			position: absolute;
+			top: 45px;
+			left: 0;
+		}
+		li {
+			list-style-type: none;
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+		}
+		input {
+			margin: 10px 0;
+			height: 25px;
+			width: 200px;
+		}
+		button {
+			height: 30px;
+			width: 80px;
+			font-size: 14px;
+			cursor: pointer;
+		}
+		.move {
+			width: 44px;
+			height: 44px;
+			position: absolute;
+			left: 227px;
+			top: 227px;
+			background-color: red;
+		}
+		.move div {
+			background-color: blue;
+		}
+		.top {
+			width: 100%;
+			height: 25%;
+		}
+		.right {
+			width: 25%;
+			height: 100%;
+			margin-left: 75%
+		}
+		.bottom {
+			width: 100%;
+			height: 25%;
+			margin-top: 75%;
+		}
+		.left {
+			width: 25%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<ul class="toplist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<ul class="leftlist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<div class="move" id="move">
+		<div class="left"></div>
+	</div>
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<input type="text">
+	<button>执行</button><br>
+	<span>不想打字就点这个：</span>
+	<button class="lazymode">GO</button>
+	<button class="lazymode">TUN LEF</button>
+	<button class="lazymode">TUN RIG</button>
+	<button class="lazymode">TUN BAC</button>
+</div>
+</body>
+<script type="text/javascript" src="task_33.js"></script>
+</html>

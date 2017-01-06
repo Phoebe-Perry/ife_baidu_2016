@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_2-21</title>
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		width: 800px;
+		margin: 0 auto;
+	}
+	#tag_box {
+		margin: 20px auto;
+	}
+	#tag_list {
+		display: flex;
+	}
+	#tag_list span{
+		background-color: #78BCFB;
+		color: #fff;
+		cursor: pointer;
+		padding: 8px;
+		margin: 2px 5px;
+	}
+	#hobby_box {
+		margin: 20px auto;
+	}
+	#hobby_list {
+		display: flex;
+	}
+	#hobby_list span{
+		background-color: orange;
+		color: #fff;
+		cursor: pointer;
+		padding: 8px;
+		margin: 2px 5px;
+	}
+	button {
+		margin-top: 5px;
+		padding: 3px;
+	}
+	</style>
+</head>
+<body>
+<div id="tag_box">
+	<span>Tag:</span><input type="text" id="tag_input">
+</div>
+<div id="tag_list">
+</div>
+
+<div id="hobby_box">
+	<textarea rows="3" cols="25" id="hobby_input"></textarea><br>
+	<button>确认兴趣爱好</button>	
+</div>
+<div id="hobby_list">
+</div>
+
+<script type="text/javascript" src="task_21.js"></script>
+</body>
+</html>

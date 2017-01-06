@@ -55,7 +55,9 @@ function delBtnHandle(obj) {
   var tr = obj.parentNode.parentNode;
   document.getElementById('aqi-table').firstChild.removeChild(tr); 
   //这个firstChild害死我了，因为table的firstChild是tbody——即使我没写，我当做tr了，结果怎么调都不对
-
+  /*console.log(tr.firstChild.innerHTML);*/
+  delete aqiData[tr.firstChild.innerHTML];
+  renderAqiList();
 }
 
 function init() {

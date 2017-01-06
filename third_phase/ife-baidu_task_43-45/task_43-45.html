@@ -1,0 +1,126 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_2-21</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	img{
+		width: 90%;
+		margin: 10px;
+		object-fit: cover;
+	}
+	.placeholder {
+		width: 1000px;
+		margin: 20px auto;
+		position: relative;
+	}
+	.img1 {
+
+	}
+	.img2 :first-child {
+		-webkit-clip-path: polygon(0 0, 66% 0, 33% 100%, 0% 100%);
+		clip-path: polygon(0 0, 66% 0, 33% 100%, 0% 100%);	
+	}
+	.img2 :nth-child(2) {
+		-webkit-clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+		clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+		position: absolute;
+		left: 10px;
+	}
+	.img3 :first-child {
+		width: 50%;
+		height: 100%;
+	}
+	.img3 :nth-child(2) {
+		width: 50%;
+		height: 50%;
+		position: absolute;
+	}
+	.img3 :nth-child(3) {
+		width: 50%;
+		height: 50%;
+		position: absolute;
+		top: 50%;
+	} 
+	.img4 :first-child {
+		float: left;
+		width: 50%;
+		height: 50%;
+	}
+	.img4 :nth-child(2) {
+		width: 50%;
+		height: 50%;
+	}
+	.img4 :nth-child(3) {
+		width: 50%;
+		height: 50%;
+/*		top: 0;
+		left: 51%;*/
+	}
+	.img4 :nth-child(4) {
+		width: 50%;
+		height: 50%;
+/*		top: 50%;
+		left: 51%;*/
+	}
+	</style>
+</head>
+<body>
+	<div class="placeholder">
+		<h3>一张图片</h3>
+		<div id="count1" class="img1">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+	<div class="placeholder">
+		<h3>二张图片</h3>
+		<div id="count2" class="img2">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+	<div class="placeholder">
+		<h3>三张图片</h3>
+		<div id="count3" class="img3">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+	<div class="placeholder">
+		<h3>四张图片</h3>
+		<div id="count4" class="img4">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+	<div class="placeholder">
+		<h3>五张图片</h3>
+		<div id="count5" class="img5">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+	<div class="placeholder">
+		<h3>六张图片</h3>
+		<div id="count6" class="img6">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+			<img src="zoro.jpg">
+		</div>
+	</div>
+<script type="text/javascript" src="task_43-45.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_26</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: #000;
+		}
+		#control {
+			background-color: #fff;
+			padding: 20px;
+			width: 380px;
+			line-height: 28px;
+			font-size: 1.15em;
+		}
+		button {
+			margin-right: 10px;
+			font-size: 0.8em;
+			padding: 2px;
+			cursor: pointer;
+		}
+		#order_screen {
+			float: left;
+			margin-top: 20px;
+			width: 380px;
+			padding: 20px;
+			color: lightgreen;
+			background-color: #333;
+		}
+		#universe {
+			position: relative;
+			width: 600px;
+			height: 600px;
+			margin-left: 40%;
+			margin-top: -70px;
+		}
+		.planet {
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background-color: blue;
+			position: absolute;
+			top: 200px;
+			left: 200px;
+		}
+		.orbit {
+			position: absolute;
+			border: 1px solid #666;
+			border-radius: 50%;
+		}
+		#orbit_1 {
+			width: 300px;
+			height: 300px;
+			top: 150px;
+			left: 150px;
+		}
+		#orbit_2 {
+			width: 400px;
+			height: 400px;
+			top: 100px;
+			left: 100px;
+		}
+		#orbit_3 {
+			width: 500px;
+			height: 500px;
+			top: 50px;
+			left: 50px;
+		}
+		#orbit_4 {
+			width: 600px;
+			height: 600px;
+		}
+		.spaceship {
+			width: 85px;
+			height: 40px;
+			border-radius: 20px;
+			border-right: 15px blue solid;
+			background-color: #999;
+			position: absolute;
+			text-align: center;
+			line-height: 40px;
+			transform: rotate(45deg);
+			left: 250px;
+		}
+	</style>
+</head>
+<body>
+	<div id="control">
+<!-- 		<div><span>对1号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button></div>
+		<div><span>对2号飞船下达命令：</span><button>开始飞行</button><button>停止飞行</button><button>销毁</button></div> -->
+		<button>新的飞船起飞</button>
+	</div>
+	<div id="order_screen"></div>
+	<div id="universe">
+		<div class="planet"></div>
+		<div id="orbit_1" class="orbit"></div>
+		<div id="orbit_2" class="orbit"></div>
+		<div id="orbit_3" class="orbit"></div>
+		<div id="orbit_4" class="orbit"></div>
+<!-- 		<div id="ship_1" class="spaceship">1号-<span>100%</span></div>
+		<div id="ship_2" class="spaceship">2号-<span>100%</span></div> -->
+<!-- 		<div id="ship_3" class="spaceship">1号-<span>100%</span></div>
+		<div id="ship_4" class="spaceship">2号-<span>100%</span></div> -->
+	</div>
+</body>
+<script type="text/javascript" src="task_26.js"></script>
+</html>

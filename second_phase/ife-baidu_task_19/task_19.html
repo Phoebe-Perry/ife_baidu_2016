@@ -1,0 +1,142 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_2-18</title>
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	#ctrl {
+		margin: 5px 0 20px;
+	}
+	#ctrl button {
+		padding: 3px;
+	}
+	#list {
+		display: flex;
+		align-items: flex-end;
+	}
+	#list div {
+		width: 20px;
+		margin: 0 2px;
+		background-color: red;
+		color: white;
+		line-height: 15px;
+		cursor: pointer;
+		bottom: 0;
+	}
+	</style>
+</head>
+<body>
+<div id="ctrl">
+	<input type="text" id="inputNum">
+	<button id="left_in">左侧入</button>
+	<button id="right_in">右侧入</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="left_out">左侧出</button>
+	<button id="right_out">右侧出</button>
+	<button id="sort_num">排序</button>
+	<button id="randomBtn">生成随机数</button>
+</div>
+<div id="list">
+</div>
+<script>
+window.onload = function () {
+	document.getElementById('left_in').onclick = leftIn;
+	document.getElementById('right_in').onclick = rightIn;
+	document.getElementById('left_out').onclick = leftOut;
+	document.getElementById('right_out').onclick = rightOut;
+	document.getElementById('randomBtn').onclick = randomData;
+}
+var list = document.getElementById('list');
+var numTest = /^\d{2,3}$/;//限制输入的数字在10-100
+var innerSpan = list.getElementsByTagName('div');
+function leftIn() {
+	var num = document.getElementById('inputNum').value;
+	var newSpan = document.createElement('div');
+	newSpan.style.height = parseInt(num) + 'px';
+	if(num > 100||!numTest.test(num)) {
+		alert('Number is Wrong');
+	}else if (innerSpan.length > 60) {
+		alert('队列数量超出60')
+	}//队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示
+	else if(!innerSpan[0]) {
+		list.appendChild(newSpan);
+	} else {
+		list.insertBefore(newSpan,innerSpan[0])
+	}
+}
+function rightIn() {
+	var num = document.getElementById('inputNum').value;
+	var newSpan = document.createElement('div');
+	newSpan.style.height = parseInt(num) + 'px';
+	if (!numTest.test(num)) {
+		alert('Number is Wrong');
+	} else {
+		list.appendChild(newSpan);
+	}	
+}
+function leftOut() {
+	var listSpan = document.getElementsByTagName('div')[0];
+	if (!listSpan) {
+		alert('No Number');
+	} else {
+		list.removeChild(list.firstChild);
+	}
+}
+function rightOut() {
+	var listSpan = document.getElementsByTagName('div')[0];
+	if (!listSpan) {
+		alert('No Number');
+	} else {
+		list.removeChild(list.lastElementChild);
+	}	
+}
+
+var sortNum = document.getElementById('sort_num');
+sortNum.onclick=function(){
+	var eleHeight = [];
+	for (var item = 0; item < innerSpan.length; item++) {
+		eleHeight.push(innerSpan[item].offsetHeight);		
+	}//把innerSpan各元素的高度另存一个数组，方便书写
+
+	var	i = 0,j = 1,timer = null;
+	timer = setInterval(run,3);
+	function run() {
+		if (i < eleHeight.length) {
+			if (j < eleHeight.length) {
+				if (eleHeight[i] > eleHeight[j]) {
+					var temp = eleHeight[i];
+					eleHeight[i] = eleHeight[j];
+					eleHeight[j] = temp;
+					innerSpan[i].style.height = eleHeight[i];
+					innerSpan[j].style.height = temp;
+				}
+				j++;
+			} else {
+				i++;
+				j = i + 1;
+			}						
+		} else {
+			clearInterval(timer);
+			return;
+		}
+	}//看的前端接班人的算法，尝试过改成for循环但是失败了……	
+}
+
+//随机生成一组数
+function randomData() {
+	var data = [];
+	for (var i = 0; i < 100; i++) {
+		var randomNum = Math.floor(Math.random()*100+10);
+		data.push(randomNum);
+		list.innerHTML += '<div></div>';
+		var newSpan = list.getElementsByTagName('div');
+		newSpan[i].style.height = parseInt(randomNum) + 'px';
+	}
+}
+</script>
+</body>
+</html>

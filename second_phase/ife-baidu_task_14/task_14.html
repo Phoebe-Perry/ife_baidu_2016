@@ -34,7 +34,7 @@ var aqiData = [
   var a = new Array();
   for (var i = 0; i < aqiData.length; i++) {
     if ( aqiData[i][1]>=60 ) {
-      a.push([aqiData[i][0],aqiData[i][1]]);
+      a.push(aqiData[i]);
     }
   }
   /*将新数组排序*/
@@ -47,6 +47,21 @@ var aqiData = [
   }
   document.getElementById('aqi-list').innerHTML = l ;
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>

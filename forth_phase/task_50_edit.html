@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task_4-50</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="edit.css">
+</head>
+<body>
+	<div id="top">
+		<span>问卷管理</span><span>我的问卷</span>
+	</div>
+	<div id="main_edit">
+		<h3>标题</h3>
+		<div id="ques_zone">
+			<div class="ques_unit">
+				<h4>Q1 单选题</h4>
+				<input type="radio" name="q1" value="a"> A 选项<br>
+				<input type="radio" name="q1" value="b"> B 选项
+				<p><span>上移</span><span>下移</span><span>复用</span><span>删除</span></p>
+			</div>
+			<div class="ques_unit">
+				<h4>Q2 多选题</h4>
+				<input type="checkbox" name="q2" value="a"> A 选项<br>
+				<input type="checkbox" name="q2" value="b"> B 选项<br>
+				<input type="checkbox" name="q2" value="c"> C 选项<br>
+				<input type="checkbox" name="q2" value="d"> D 选项
+				<p><span>上移</span><span>下移</span><span>复用</span><span>删除</span></p>
+			</div>
+			<div class="ques_unit">
+				<h4>Q3 单选题</h4>
+				<input type="radio" name="q3" value="a"> A 选项<br>
+				<input type="radio" name="q3" value="b"> B 选项
+				<p><span>上移</span><span>下移</span><span>复用</span><span>删除</span></p>
+			</div>
+			<div class="ques_unit">
+				<h4>Q4 文本框</h4>
+				<textarea name="q4" id="" cols="100" rows="5"></textarea>
+				<span class="necessary"><input type="checkbox" name="q4" value="">此题是否必填</span>
+			</div>
+			<div id="add_q">
+				<span>单选</span><span>多选</span><span>文本题</span>
+				<div>+ 添加问题</div>
+			</div>
+		</div>
+		<div id="date">
+			<div><span>问卷截止日期</span><input type="text" value="2016-5-16"></div>
+			<button>保存问卷</button><button class="special_bg">发布问卷</button>
+		</div>
+	</div>
+	<div clsss="mask" id="mask"></div>
+	<div id="alert_box">
+		<div>提示</div>
+		<span>X</span>
+		<p>确认要删除此问卷？</p>
+		<button id="alert_yes">确定</button><button id="alert_no">取消</button>
+	</div>
+<script type="text/javascript" src="task_50.js"></script>
+</body>
+</html>
